@@ -1,7 +1,7 @@
 .feature-content {
 	width: 75%;
 }
-.feature-content ul {
+.feature-content > ul {
 	padding: 16px;
   color: #778899;
 }
