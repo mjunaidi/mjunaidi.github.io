@@ -55,6 +55,9 @@
 .projects-detail .project {
   padding: 10px;
 }
+.project figure {
+  border: 0.5px solid #e0e5e9;
+}
 .achievements {
     background: url("../img/unsplash/unsplash-kitsune-31.jpg") no-repeat fixed center center / cover rgba(0, 0, 0, 0);
 }
