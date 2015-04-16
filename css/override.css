@@ -8,6 +8,10 @@
 .hero {
     background: url("../img/unsplash/photo-1421757295538-9c80958e75b0.jpg");
 }
+.blur-overlay {
+    background-image: url("../img/unsplash/photo-1421757295538-9c80958e75b0-blur.jpg");
+    opacity:0;
+}
 .hero-content ul li .label {
 	font-size: 12px;
 	line-height: 28px;
