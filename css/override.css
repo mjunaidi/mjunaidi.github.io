@@ -1,15 +1,16 @@
 .feature-content {
 	width: 75%;
 }
-@media screen and (max-width:465px){
-	.feature-content{width:100%;text-align:left;}
-}
 .feature-content > ul {
-	padding: 16px;
+  padding: 16px;
   color: #778899;
 }
 .hero {
     background: url("../img/unsplash/photo-1421757295538-9c80958e75b0.jpg");
+}
+.hero-content ul li .label {
+	font-size: 12px;
+	line-height: 28px;
 }
 .showcase {
     background: url("../img/unsplash/work-stations-plus-espresso-blur.jpg") no-repeat fixed center center / cover rgba(0, 0, 0, 0);
@@ -70,4 +71,11 @@
 }
 .logo-skali {
     background: url("../img/logo/skali.png") no-repeat scroll 5px 20px / 100% auto rgba(0, 0, 0, 0);
+}
+@media screen and (max-width:640px){
+  .use-btn{display:block;}
+}
+@media screen and (max-width:465px){
+  .hero h1{margin-top: 50px;}
+  .feature-content{width:100%;text-align:left;}
 }
