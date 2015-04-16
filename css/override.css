@@ -42,8 +42,17 @@
     position: relative;
 }
 .projects-detail {
-	margin-top: 50px;
-	margin-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.projects-detail .project:nth-child(odd) {
+  background-color: #f6f7f9;
+}
+.wp2 {
+  padding: 10px;
+}
+.wp2:nth-child(odd) {
+	background-color: #f6f7f9;
 }
 .achievements {
     background: url("../img/unsplash/unsplash-kitsune-31.jpg") no-repeat fixed center center / cover rgba(0, 0, 0, 0);
