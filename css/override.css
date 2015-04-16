@@ -1,6 +1,8 @@
 .feature-content {
 	width: 75%;
-	text-align: left;
+}
+@media screen and (max-width:465px){
+	.feature-content{width:100%;text-align:left;}
 }
 .feature-content > ul {
 	padding: 16px;
