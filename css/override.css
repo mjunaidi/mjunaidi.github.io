@@ -1,5 +1,6 @@
 .feature-content {
 	width: 75%;
+	text-align: left;
 }
 .feature-content > ul {
 	padding: 16px;
