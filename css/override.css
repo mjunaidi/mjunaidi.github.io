@@ -5,6 +5,18 @@
 	padding: 16px;
   color: #778899;
 }
-#achievements {
-	padding: 50px 0;
+.hero {
+    background: url("../img/unsplash/photo-1421757295538-9c80958e75b0.jpg");
+}
+.showcase {
+    background: url("../img/unsplash/desktop.JPG") no-repeat fixed center center / cover rgba(0, 0, 0, 0);
+}
+.feature-icon {
+	border-color: #778899;
+}
+.feature-icon i {
+  color: #778899;
+}
+.showcase h1 > img {
+	border-radius: 17px;
 }
