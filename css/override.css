@@ -18,9 +18,7 @@
 }
 .wp2 {
   padding: 10px;
-}
-.wp2:nth-child(odd) {
-  background-color: #f6f7f9;
+  border-top: 1px solid #e0e5e9;
 }
 .feature-icon {
 	border-color: #778899;
@@ -52,7 +50,7 @@
   margin-bottom: 50px;
 }
 .projects-detail .project {
-  padding: 10px;
+	padding: 10px;
 }
 .projects-detail .project:nth-child(odd) {
   background-color: #f6f7f9;
