@@ -33,6 +33,10 @@
     padding: 100px 0;
     position: relative;
 }
+.projects-detail {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
 .achievements {
     background: url("../img/unsplash/unsplash-kitsune-31.jpg") no-repeat fixed center center / cover rgba(0, 0, 0, 0);
 }
@@ -45,4 +49,22 @@
 .achievements-wrap {
     padding: 100px 0;
     position: relative;
+}
+.logo-bt {
+    background: url("../img/logo/bt.jpg") no-repeat scroll 2px 2px / 100% auto rgba(0, 0, 0, 0);
+}
+.logo-atex {
+    background: url("../img/logo/atex.svg") no-repeat scroll 1px 20px / 100% auto rgba(0, 0, 0, 0);
+}
+.logo-cdc {
+    background: url("../img/logo/cdc.png") no-repeat scroll 1px 20px / 100% auto rgba(0, 0, 0, 0);
+}
+.logo-fw {
+    background: url("../img/logo/fw.png") no-repeat scroll 1px 31px / 100% auto rgba(0, 0, 0, 0);
+}
+.logo-infosys {
+    background: url("../img/logo/infosys.png") no-repeat scroll 1px 1px / 100% auto rgba(0, 0, 0, 0);
+}
+.logo-skali {
+    background: url("../img/logo/skali.png") no-repeat scroll 5px 20px / 100% auto rgba(0, 0, 0, 0);
 }
