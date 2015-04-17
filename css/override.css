@@ -6,6 +6,10 @@
   padding: 16px; color: #778899;
 }
 
+.feature-content>h1>a {
+  color: #399399;
+}
+
 .hero {
   background: url("../img/unsplash/photo-1421757295538-9c80958e75b0.jpg");
 }
