@@ -5,14 +5,14 @@
 
   function configureRoutes($routeProvider) {
     $routeProvider.when("/", {
-      templateUrl : 'app/html/plain.html',
+      templateUrl : 'app/portfolio/portfolio.html',
       controller : 'ModelController as ctrl',
       resolve : {
         config : function() {
           return {
             'get' : {
               'paths' : {
-                'app/app.config.json' : null
+                'app/portfolio/portfolio.json' : null
               }
             }
           };

@@ -1,0 +1,85 @@
+{
+    "sections": [{
+        "templateUrl": "app/html/header.html",
+        "title": "Software Engineer",
+        "description": "A passionate programmer who loves solving problems and creating beautiful products.",
+        "keywords": [{
+            "name": "javascript",
+            "group": "Programming Languages"
+        }, {
+            "name": "Java",
+            "group": "Programming Languages"
+        }, {
+            "name": "HTML5",
+            "group": "Programming Languages"
+        }, {
+            "name": "PHP",
+            "group": "Programming Languages"
+        }, {
+            "name": "Objective-C",
+            "group": "Programming Languages"
+        }, {
+            "name": "AngularJS",
+            "group": "Frameworks"
+        }, {
+            "name": "Bootstrap",
+            "group": "Frameworks"
+        }, {
+            "name": "jQuery",
+            "group": "Frameworks"
+        }, {
+            "name": "Spring",
+            "group": "Frameworks"
+        }, {
+            "name": "Hibernate",
+            "group": "Frameworks"
+        }, {
+            "name": "Web",
+            "group": "Platforms"
+        }, {
+            "name": "iOS",
+            "group": "Platforms"
+        }, {
+            "name": "Agile",
+            "group": "Methodology"
+        }, {
+            "name": "Scrum",
+            "group": "Methodology"
+        }, {
+            "name": "TeamCity",
+            "group": "CI"
+        }, {
+            "name": "Bamboo",
+            "group": "CI"
+        }, {
+            "name": "Jenkins",
+            "group": "CI"
+        }],
+        "links": [{
+            "url": "https://github.com/mjunaidi/",
+            "icon": "fa fa-github",
+            "label": "GitHub Repo"
+        }, {
+            "url": "https://careers.stackoverflow.com/mjunaidi",
+            "icon": "fa fa-stack-overflow",
+            "label": "StackOverflow Profile"
+        }]
+    }],
+    "groups": {
+        "Programming Languages": {
+            "cssClass": "label-success"
+        },
+        "Frameworks": {
+            "cssClass": "label-primary"
+        },
+        "Platforms": {
+            "cssClass": "label-danger"
+        },
+        "Methodology": {
+            "cssClass": "label-info"
+        },
+        "CI": {
+            "cssClass": "label-warning"
+        }
+    }
+}

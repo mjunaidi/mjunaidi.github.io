@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js">
 <!--<![endif]-->
-<html lang="en" xmlns:ng="http://angularjs.org" id="ng-app" class="ng-app:app" ng-app="app">
+<html lang="en" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,23 +50,7 @@
 		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
   <!-- open/close -->
-  <div class="container-fluid">
-
-    test
-    <div class="row">
-      <div class="col-xs-12 col-sm-12">
-        <div class="row">
-          <div class="col-12 col-sm-12 col-lg-12" ng-view=""></div>
-          <!--/span-->
-        </div>
-        <!--/row-->
-      </div>
-      <!--/span-->
-    </div>
-    <!--/row-->
-
-  </div>
-  <!--/.container-->
+  <div ng-view=""></div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="js/min/toucheffects-min.js"></script>
