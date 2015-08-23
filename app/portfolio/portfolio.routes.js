@@ -5,7 +5,7 @@
 
   function configureRoutes($routeProvider) {
     $routeProvider.when("/", {
-      templateUrl : 'app/portfolio/portfolio.html',
+      templateUrl : 'app/portfolio/sections.html',
       controller : 'ModelController as ctrl',
       resolve : {
         config : function() {
@@ -13,7 +13,8 @@
             'get' : {
               'paths' : {
                 'app/portfolio/portfolio.json' : null
-              }
+              },
+              'key' : 'init'
             }
           };
         }

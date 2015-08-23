@@ -1,6 +1,6 @@
 {
     "sections": [{
-        "templateUrl": "app/html/header.html",
+        "templateUrl": "app/portfolio/header.html",
         "title": "Software Engineer",
         "description": "A passionate programmer who loves solving problems and creating beautiful products.",
         "keywords": [{

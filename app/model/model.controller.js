@@ -8,15 +8,16 @@
   function ModelController(dataService, config) {
     this._dataService = dataService;
     this._watchers = {};
-    this._init(config);
+    this.init(config);
   }
 
-  ModelController.prototype._init = function(config) {
+  ModelController.prototype.init = function(config) {
     if (typeof config !== 'undefined' && config !== null) {
       if (typeof config === 'object') {
         for ( var i in config) {
           if (typeof this[i] === 'undefined') {
             this[i] = config[i];
+            this._watch(i);
           } else if (typeof this[i] === 'function') {
             this[i].call(this, config[i]);
           }
@@ -71,10 +72,12 @@
               }
             }
             if (typeof key !== 'undefined') {
-              this[key] = data;
-              this._watch(key);
-            } else {
-              this._init(data);
+              if (typeof this[key] === 'function') {
+                this[key].call(this, data);
+              } else {
+                this[key] = data;
+                this._watch(key);
+              }
             }
           }.bind(this));
         }
@@ -96,6 +99,28 @@
         for ( var i in fns) {
           fns[i].call();
         }
+      }
+    }
+  };
+
+  ModelController.prototype.exec = function(key, args) {
+    console.log('exec ' + key);
+    console.log('args ' + args);
+    if (typeof this[key] === 'function') {
+      this[key].call(key, args);
+    } else if (typeof this[key] === 'undefined') {
+      this._watch(key, (function() {
+        console.log('exec 2 ' + key);
+        this.exec(key, args);
+      }).bind(this));
+    } else {
+      console.log(typeof this[key]);
+      console.log(this[key]);
+      console.log('args ' + args);
+      var fn = eval('this.' + key + "=" + this[key]);
+      console.log(fn);
+      if (typeof fn === 'function') {
+        fn.call(this, args);
       }
     }
   };
