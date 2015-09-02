@@ -70,7 +70,6 @@
           this.saved = _.map(DEFAULT_LIST, _.clone);
         }
         this.set('saved', this.saved);
-        console.log(this.saved);
       }
     }
   };
