@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<title>Revisiting Software Development: Challenge & Solution</title>
+
+<meta name="description" content="">
+<meta name="author" content="mjunaidi">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="../reveal.js-3.2.0/css/reveal.css">
+<link rel="stylesheet" href="../reveal.js-3.2.0/css/theme/black.css" id="theme">
+
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="../reveal.js-3.2.0/lib/css/zenburn.css">
+
+<!-- Printing and PDF exports -->
+<script>
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js-3.2.0/css/print/pdf.css' : '../reveal.js-3.2.0/css/print/paper.css';
+  document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+
+<!--[if lt IE 9]>
+		<script src="../reveal.js-3.2.0/lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h1>Revisiting Software Development</h1>
+        <h3>Challenge & Solution</h3>
+        <p>
+          <small>Prepared by <a href="http://mjunaidi.github.io">M Junaidi</a></small>
+        </p>
+      </section>
+
+      <section>
+        <h3>Grievances in Software Development</h3>
+        <ul>
+          <li>Failure to meet deadlines.</li>
+          <li>Failure to take account of customer feedback.</li>
+          <li>Excessively slow programs.</li>
+          <li>Dispersion of programming staff.</li>
+          <li>Lack of technical writing effort for documentation.</li>
+          <li>Lack of software knowledge outside of the programming group.</li>
+          <li>Interference from higher managers who imposed decisions, "<i>...without a full realization of the
+              more intricate implications of the matter.</i>"
+          </li>
+          <li>Overoptimism in the face of pressure from customers.</li>
+        </ul>
+        <p class="fragment">
+          In which <strong>year</strong> <u>do you think</u> it was written?
+        </p>
+      </section>
+      <section>
+        <h2>
+          It was <strong>1965</strong>.
+        </h2>
+        <p class="fragment">Does it sound familiar?</p>
+        <p class="fragment">Why does it keep repeating in modern software development projects?</p>
+        <p class="fragment">Don't we should have the solution already?</p>
+      </section>
+
+      <section>
+        <h3>Objectives</h3>
+        <p class="fragment">
+          To identify the problems in our software development approaches. <strong>(The challenge)</strong>
+        </p>
+        <p class="fragment">
+          To learn from the people of the past how they solve those problems. <strong>(The solution)</strong>
+        </p>
+      </section>
+
+      <section>
+        <h3>Case Study I: Elliott 503 Mark II Operating System</h3>
+        <ul>
+          <!-- <li class="fragment">Lead by Sir Charles Antony Richard Hoare (C.A.R. Hoare).</li> -->
+          <li class="fragment">From Oct 1963 to <span style="text-decoration: line-through">March</span> <span
+            style="text-decoration: line-through">June</span> September 1965 (18 + 3 + 3 = 24 months)
+          </li>
+          <li class="fragment">Started with 15 programmers</li>
+          <li class="fragment"><strong>Unsuccessful</strong> and <strong>abandoned</strong> along with "<i>over
+              thirty man-years of programming effort.</i>"</li>
+        </ul>
+      </section>
+
+      <section>
+        <h5>Case Study I: Elliott 503 Mark II Operating System</h5>
+        <h3>What went wrong?</h3>
+        <ul>
+          <li>Failure to meet deadlines,</li>
+          <li>excessive size of software,</li>
+          <li>not justified by the usefulness of the facilities provided,</li>
+          <li>excessively slow programs,</li>
+          <li>failure to take account of customer feedback.</li>
+          <li>Earlier attention paid to quite minor requests of our customers might have paid as great dividends of
+            goodwill as the success of our most ambitious plans.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>References</h3>
+        <ul>
+          <li>1981, C. A. R. Hoare, The Emperor's Old Clothes, <a
+            href="http://delivery.acm.org/10.1145/360000/358561/p75-hoare.pdf?ip=1.9.99.160&id=358561&acc=OPEN&key=4D4702B0C3E38B35%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35%2E6D218144511F3437&CFID=749179638&CFTOKEN=91713911&__acm__=1454221701_7e710b63000c5ddd20cd164ecab4b5cc"
+            target="_blank">PDF</a>
+          </li>
+          <li>1975, Fred Brooks, The Mythical Man-Month, <a
+            href="https://www.cs.virginia.edu/~evans/greatworks/mythical.pdf" target="_blank">PDF</a>
+          </li>
+          <li>1986, Fred Brooks, No Silver Bullet — Essence and Accidents of Software Engineering, <a
+            href="https://www.cs.virginia.edu/~evans/greatworks/mythical.pdf" target="_blank">PDF</a>
+          </li>
+        </ul>
+      </section>
+
+      <section style="text-align: left;">
+        <h1>THE END</h1>
+        <p>Thank you!</p>
+      </section>
+    </div>
+
+  </div>
+
+  <script src="../reveal.js-3.2.0/lib/js/head.min.js"></script>
+  <script src="../reveal.js-3.2.0/js/reveal.js"></script>
+
+  <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls : true,
+        progress : true,
+        history : true,
+        center : true,
+
+        transition : 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies : [ {
+          src : '../reveal.js-3.2.0/lib/js/classList.js',
+          condition : function() {
+            return !document.body.classList;
+          }
+        }, {
+          src : '../reveal.js-3.2.0/plugin/markdown/marked.js',
+          condition : function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        }, {
+          src : '../reveal.js-3.2.0/plugin/markdown/markdown.js',
+          condition : function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        }, {
+          src : '../reveal.js-3.2.0/plugin/highlight/highlight.js',
+          async : true,
+          callback : function() {
+            hljs.initHighlightingOnLoad();
+          }
+        }, {
+          src : '../reveal.js-3.2.0/plugin/zoom-js/zoom.js',
+          async : true
+        }, {
+          src : '../reveal.js-3.2.0/plugin/notes/notes.js',
+          async : true
+        } ]
+      });
+    </script>
+
+</body>
+</html>
