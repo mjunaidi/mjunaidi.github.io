@@ -90,6 +90,10 @@ footer {
   padding-bottom: 0;
 }
 
+.logo-merc {
+  background: url("../img/logo/merc.jpg") no-repeat scroll 0px -1px/100% auto rgba(0, 0, 0, 0);
+}
+
 .logo-bt {
   background: url("../img/logo/bt.jpg") no-repeat scroll 2px 2px/100% auto rgba(0, 0, 0, 0);
 }
