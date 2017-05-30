@@ -3,12 +3,12 @@
 
   angular.module('app.model').controller('MainController', MainController);
 
-  MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document', '$crypto', '$http' ];
+  MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document', '$crypto', '$http', '$scope' ];
 
   var DEFAULT_KEY = '';
   var ALPHABETS = 'abcdefghijklmnopqrstuvwxyz';
 
-  function MainController(modelService, themeService, storageService, modal, document, crypto, http) {
+  function MainController(modelService, themeService, storageService, modal, document, crypto, http, scope) {
     this._modelService = modelService;
     this._themeService = themeService;
     this._storageService = storageService;
@@ -16,6 +16,7 @@
     this._document = document;
     this._crypto = crypto;
     this._http = http;
+    this._scope = scope;
 
     this._initHeader();
     this._initBody();
@@ -26,7 +27,7 @@
 
   MainController.prototype._initBody = function() {
     this.key = DEFAULT_KEY;
-    this.input = "";
+    this.input = '';
     this.val = "U2FsdGVkX18kfDLR0gaDGKMt+n1NyAeYVk8pYntiyFBTPCzzKMOiGjVFrqYOxMjz";
     this.readData();
   };

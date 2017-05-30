@@ -12,6 +12,7 @@
     'app.storage',
     'app.theme',
     'app.model',
-    'mdo-angular-cryptography'
+    'mdo-angular-cryptography',
+    'mdMarkdownIt'
   ]);
 })();
