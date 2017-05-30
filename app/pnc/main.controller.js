@@ -30,6 +30,7 @@
     this.input = '';
     this.val = "U2FsdGVkX18kfDLR0gaDGKMt+n1NyAeYVk8pYntiyFBTPCzzKMOiGjVFrqYOxMjz";
     this.readData();
+    this.openModal();
   };
 
   MainController.prototype.readData = function() {
@@ -177,6 +178,12 @@
     if (typeof this[key] === 'undefined') {
       this[key] = val;
     }
+  };
+
+  MainController.prototype.openModal = function() {
+    this.modal({
+      templateUrl: '../app/pnc/html/modal.html'
+    });
   };
 
   MainController.prototype.modal = function(args) {
