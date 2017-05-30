@@ -3,7 +3,11 @@
     <span class="glyphicon glyphicon-eye-open"></span>
   </button>
 </div>
-<div class="row">
+<div class="row" ng-hide="ctrl.decrypted">
   <div class="col-xs-12" markdown-it="ctrl.val">
+  </div>
+</div>
+<div class="row" ng-show="ctrl.decrypted">
+  <div class="col-xs-12" markdown-it="ctrl.decrypted">
   </div>
 </div>

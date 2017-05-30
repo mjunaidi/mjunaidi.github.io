@@ -54,7 +54,7 @@
   };
 
   MainController.prototype.decryptVal = function() {
-    this.val = this._crypto.decrypt(this.val, this.key);
+    this.decrypted = this._crypto.decrypt(this.val, this.key);
   };
 
   MainController.prototype.save = function(str) {
