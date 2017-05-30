@@ -1,0 +1,25 @@
+<div class="row max-height">
+<form class="max-height">
+  <div class="col-xs-12">
+    <button class="btn btn-primary pull-right" type="submit" ng-click="ctrl.decrypt(ctrl.input)">
+      <span class="glyphicon glyphicon-eye-open"></span>
+    </button>
+    <button class="btn btn-primary" type="submit" ng-click="ctrl.encrypt()">
+      <span class="glyphicon glyphicon-eye-close"></span>
+    </button>
+  <div class="col-xs-12">
+  </div>
+    <div class="form-group">
+      <input type="text" class="form-control" ng-model="ctrl.key">
+    </div>
+  </div>
+  <div class="col-xs-6 max-height">
+    <div class="form-group max-height">
+      <textarea class="form-control" ng-model="ctrl.input"></textarea>
+    </div>
+  </div>
+  <div class="col-xs-6 max-height">
+    <textarea class="form-control" ng-model="ctrl.result"></textarea>
+  </div>
+</form>
+</div>

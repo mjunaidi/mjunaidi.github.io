@@ -3,17 +3,18 @@
 
   angular.module('app.model').controller('MainController', MainController);
 
-  MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document' ];
+  MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document', '$crypto' ];
 
+  var DEFAULT_KEY = '';
   var ALPHABETS = 'abcdefghijklmnopqrstuvwxyz';
-  var DEFAULT_LIST = [ '9 12.15.22.5 25.15.21', '8.15.13.5 19.23.5.5.20 8.15.13.5' ];
 
-  function MainController(modelService, themeService, storageService, modal, document) {
+  function MainController(modelService, themeService, storageService, modal, document, crypto) {
     this._modelService = modelService;
     this._themeService = themeService;
     this._storageService = storageService;
     this._modal = modal;
     this._document = document;
+    this._crypto = crypto;
 
     this._initHeader();
     this._initBody();
@@ -23,11 +24,16 @@
   };
 
   MainController.prototype._initBody = function() {
-    this.defaultList = _.map(DEFAULT_LIST, _.clone);
-    this.store('saved', this.defaultList);
-    this._modelService.watch(this, [ 'input' ], 'onInput', this._process.bind(this));
-    this._modelService.watch(this, [ 'result' ], 'onResult', this._reverse.bind(this));
-    this.set('input', this.saved[this.saved.length - 1]);
+    this.key = DEFAULT_KEY;
+    this.input = "";
+  };
+
+  MainController.prototype.encrypt = function() {
+    this.result = this._crypto.encrypt(this.input, this.key);
+  };
+
+  MainController.prototype.decrypt = function() {
+    this.input = this._crypto.decrypt(this.result, this.key);
   };
 
   MainController.prototype.save = function(str) {

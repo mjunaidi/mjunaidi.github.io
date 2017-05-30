@@ -6,6 +6,8 @@
   function configureRoutes($routeProvider, $locationProvider) {
     $routeProvider.when("/", {
       templateUrl : '../app/pnc/html/body.html'
+    }).when("/try", {
+      templateUrl : '../app/pnc/html/edit.html'
     }).otherwise({
       redirectTo : '/'
     });
