@@ -1,0 +1,20 @@
+<div class="row">
+<form>
+  <div class="col-xs-12">
+    <button class="btn btn-primary pull-right" type="submit" ng-click="ctrl.decryptVal()">
+      <span class="glyphicon glyphicon-eye-open"></span>
+    </button>
+  </div>
+  <div class="col-xs-12">
+    <div class="form-group">
+      <input type="text" class="form-control" ng-model="ctrl.key">
+    </div>
+  </div>
+</form>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    {{ctrl.val}}
+  </div>
+</div>
