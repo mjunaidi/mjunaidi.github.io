@@ -1,23 +1,20 @@
 <div class="row">
-  <div class="col-lg-6">
-    <form>
-      <div class="form-group">
-        <input type="text" class="form-control" ng-model="ctrl.input" ng-change="ctrl.set('input',ctrl.input)">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" ng-model="ctrl.result" ng-change="ctrl.set('result',ctrl.result)">
-      </div>
-      <button class="btn btn-primary" type="submit" ng-click="ctrl.save(ctrl.input)">
-        <span class="glyphicon glyphicon-floppy-disk"></span>
-      </button>
-    </form>
+<form>
+  <div class="col-xs-12">
+    <button class="btn btn-primary pull-right" type="submit" ng-click="ctrl.decryptVal()">
+      <span class="glyphicon glyphicon-eye-open"></span>
+    </button>
   </div>
-  <div class="col-lg-6">
-    <ul class="list-group">
-      <li ng-repeat="entry in ctrl.saved track by $index" class="list-group-item"><a href="" class="" ng-click="ctrl.set('input',entry)">{{ entry }} </a>
-        <button class="btn btn-danger btn-xs pull-right" ng-click="ctrl.remove(entry)">
-          <span class="glyphicon glyphicon-remove"></span>
-        </button></li>
-    </ul>
+  <div class="col-xs-12">
+    <div class="form-group">
+      <input type="text" class="form-control" ng-model="ctrl.key">
+    </div>
+  </div>
+</form>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    {{ctrl.val}}
   </div>
 </div>

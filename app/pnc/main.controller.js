@@ -26,6 +26,7 @@
   MainController.prototype._initBody = function() {
     this.key = DEFAULT_KEY;
     this.input = "";
+    this.val = "U2FsdGVkX18kfDLR0gaDGKMt+n1NyAeYVk8pYntiyFBTPCzzKMOiGjVFrqYOxMjz";
   };
 
   MainController.prototype.encrypt = function() {
@@ -34,6 +35,10 @@
 
   MainController.prototype.decrypt = function() {
     this.input = this._crypto.decrypt(this.result, this.key);
+  };
+
+  MainController.prototype.decryptVal = function() {
+    this.val = this._crypto.decrypt(this.val, this.key);
   };
 
   MainController.prototype.save = function(str) {
