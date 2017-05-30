@@ -3,18 +3,19 @@
 
   angular.module('app.model').controller('MainController', MainController);
 
-  MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document', '$crypto' ];
+  MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document', '$crypto', '$http' ];
 
   var DEFAULT_KEY = '';
   var ALPHABETS = 'abcdefghijklmnopqrstuvwxyz';
 
-  function MainController(modelService, themeService, storageService, modal, document, crypto) {
+  function MainController(modelService, themeService, storageService, modal, document, crypto, http) {
     this._modelService = modelService;
     this._themeService = themeService;
     this._storageService = storageService;
     this._modal = modal;
     this._document = document;
     this._crypto = crypto;
+    this._http = http;
 
     this._initHeader();
     this._initBody();
@@ -27,6 +28,19 @@
     this.key = DEFAULT_KEY;
     this.input = "";
     this.val = "U2FsdGVkX18kfDLR0gaDGKMt+n1NyAeYVk8pYntiyFBTPCzzKMOiGjVFrqYOxMjz";
+    this.readData();
+  };
+
+  MainController.prototype.readData = function() {
+    var path = "../app/pnc/json/data.json";
+    var ctrl = this;
+    this._http.get(path)
+      .success(function (data) {
+        ctrl.val = data.value;
+      })
+      .error(function (data) {
+        console.log(data);
+      });
   };
 
   MainController.prototype.encrypt = function() {
