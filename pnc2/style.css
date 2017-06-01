@@ -1,0 +1,9 @@
+html, body, .container {
+  height: 100%;
+}
+textarea.form-control {
+  height: 100%;
+}
+.max-height {
+  height: 100%;
+}
