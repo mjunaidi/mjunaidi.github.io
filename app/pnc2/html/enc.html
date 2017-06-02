@@ -23,13 +23,17 @@
           <div markdown-it="ctrl.input"></div>
         </div>
         <div class="col-xs-4 max-height no-padding encrypted">
-          <button ng-if="ctrl.focus" class="btn btn-primary" type="submit" ng-click="ctrl.encrypt()">
+          <button ng-if="ctrl.focus"
+                ngclipboard
+                data-clipboard-target="#result"
+                class="btn btn-primary"
+                type="submit"
+                ng-click="ctrl.copyToClipboard()">
             <span class="glyphicon glyphicon-copy"></span> Copy
           </button>
-          <textarea class="form-control cursor-auto"
+          <textarea id="result" class="form-control cursor-auto"
             ng-model="ctrl.result"
             ng-focus="ctrl.focus=true"
-            ng-blur="ctrl.focus=false"
             readonly></textarea>
         </div>
       </div>

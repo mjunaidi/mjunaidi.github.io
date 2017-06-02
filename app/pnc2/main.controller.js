@@ -76,6 +76,10 @@
     this.decrypted = this._crypto.decrypt(this.val, this.key);
   };
 
+  MainController.prototype.copyToClipboard = function() {
+    this.focus = false;
+  };
+
   MainController.prototype.save = function(str) {
     if (typeof str === 'string' && str.trim().length > 0) {
       str = str.trim();
