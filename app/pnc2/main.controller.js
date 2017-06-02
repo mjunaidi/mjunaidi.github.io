@@ -25,6 +25,27 @@
   }
 
   MainController.prototype._initHeader = function() {
+    this.navbar = {
+      templateUrl : '../app/pnc2/html/navbar.html'
+    };
+
+    this.aboutOpts = {
+      templateUrl : '../app/pnc2/html/about.html',
+      config : function() {
+        return {
+          'get' : {
+            'paths' : [ '../app/pnc2/json/about.json' ],
+            'key' : 'init'
+          }
+        };
+      }
+    };
+
+    //this.themes = this._themeService.themes();
+    this.themes = [ "default", "cerulean", "cosmo", "cyborg", "darkly", "flatly",
+              "journal", "lumen", "paper", "readable", "sandstone", "simplex",
+              "slate", "solar", "spacelab", "superhero", "united", "yeti" ]; // zero-index
+    this.store('theme', this._themeService.pick(13));
   };
 
   MainController.prototype._initBody = function() {
