@@ -53,7 +53,7 @@
   };
 
   MainController.prototype.readData = function() {
-    var path = "../app/pnc/json/data.json";
+    var path = "../app/pnc2/json/data.json";
     var ctrl = this;
     this._http.get(path)
       .success(function (data) {
