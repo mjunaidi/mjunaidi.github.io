@@ -13,6 +13,9 @@ textarea.form-control {
 .cursor-auto {
   cursor: auto !important;
 }
+.show-grid {
+  margin-bottom: 15px;
+}
 
 /* encrypted */
 div.encrypted {
