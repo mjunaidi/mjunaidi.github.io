@@ -1,5 +1,7 @@
+@echo off
 git status
 git add --all
-git commit -m "Updated..."
+set /p msg="Enter commit message: "
+git commit -m "%msg%"
 git status
 git push
