@@ -26,7 +26,7 @@
   }
 
   MainController.prototype._initHeader = function() {
-    this.key = DEFAULT_KEY;
+    this.key = '';
     this.input = '**This** _is_ \n## a \n# Secret Message';
     this.val = "";
 
@@ -64,8 +64,11 @@
     //console.log(this._location.path());
 
     if (this._location.path() === '/') {
-      this.openModal();
       this.readData();
+      console.log(this.key);
+      if (!this.key) {
+        this.openModal();
+      }
     }
 
     if (this._location.path() === '/try') {
