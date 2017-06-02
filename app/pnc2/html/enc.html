@@ -26,9 +26,9 @@
           <button ng-if="ctrl.focus"
                 ngclipboard
                 data-clipboard-target="#result"
+                ngclipboard-success="ctrl.copied(e)"
                 class="btn btn-primary"
-                type="submit"
-                ng-click="ctrl.copyToClipboard()">
+                type="submit">
             <span class="glyphicon glyphicon-copy"></span> Copy
           </button>
           <textarea id="result" class="form-control cursor-auto"

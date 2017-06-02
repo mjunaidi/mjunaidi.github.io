@@ -76,8 +76,15 @@
     this.decrypted = this._crypto.decrypt(this.val, this.key);
   };
 
-  MainController.prototype.copyToClipboard = function() {
+  MainController.prototype.copied = function(e) {
+    // hide copy button
     this.focus = false;
+
+    console.info('Action:', e.action);
+    console.info('Text:', e.text);
+    console.info('Trigger:', e.trigger);
+
+    e.clearSelection();
   };
 
   MainController.prototype.save = function(str) {
