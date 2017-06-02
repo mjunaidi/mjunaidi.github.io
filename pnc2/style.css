@@ -10,3 +10,6 @@ textarea.form-control {
 .no-padding {
   padding: 0;
 }
+.cursor-auto {
+  cursor: auto !important;
+}
