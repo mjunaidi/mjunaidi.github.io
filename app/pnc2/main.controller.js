@@ -37,6 +37,8 @@
           "name" : "Home", "path" : "/"
         }, {
           "name" : "Encrypt", "path" : "/enc"
+        }, {
+          "name" : "Decrypt", "path" : "/dec"
         }
       ]
     };
