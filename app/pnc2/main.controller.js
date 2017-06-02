@@ -84,6 +84,12 @@
       this._modelService.watch(this, [ 'key' ], 'onKey', this.encrypt.bind(this));
       this.encrypt();
     }
+
+    if (this._location.path() === '/dec') {
+      this._modelService.watch(this, [ 'encrypted' ], 'onEncrypted', this.decryptEnc.bind(this));
+      this._modelService.watch(this, [ 'key' ], 'onKey', this.decryptEnc.bind(this));
+      this.decryptEnc();
+    }
   };
 
   MainController.prototype.readData = function() {
@@ -109,6 +115,12 @@
 
   MainController.prototype.decryptVal = function() {
     this.decrypted = this._crypto.decrypt(this.val, this.key);
+  };
+
+  MainController.prototype.decryptEnc = function() {
+    if (this.encrypted) {
+      this.output = this._crypto.decrypt(this.encrypted, this.key);
+    }
   };
 
   MainController.prototype.copied = function(e) {
