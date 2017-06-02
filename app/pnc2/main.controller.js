@@ -26,7 +26,14 @@
 
   MainController.prototype._initHeader = function() {
     this.navbar = {
-      templateUrl : '../app/pnc2/html/navbar.html'
+      templateUrl : '../app/pnc2/html/navbar.html',
+      pages: [
+        {
+          "name" : "Home", "path" : "/"
+        }, {
+          "name" : "Encrypt", "path" : "/enc"
+        }
+      ]
     };
 
     this.aboutOpts = {

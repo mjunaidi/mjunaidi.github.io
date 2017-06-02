@@ -4,13 +4,16 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
       </button>
-      <span><a class="navbar-brand" href="">TrendCrypt</span>
+      <span><a class="navbar-brand" href="">TrendCrypt</a></span>
     </div>
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li ng-repeat="t in ctrl.header.contents" ng-class="ctrl.tag === t.name?'active':''">
+        <!--<li ng-repeat="t in ctrl.header.contents" ng-class="ctrl.tag === t.name?'active':''">
           <a href="" ng-click="ctrl.set({'tag':t.name,'slug':'x','first':0})">{{t.label}}</a>
+        </li> -->
+        <li ng-repeat="p in ctrl.navbar.pages" ng-class="ctrl._location.path() === p.path?'active':''">
+          <a ng-href="#{{p.path}}">{{p.name}}</a>
         </li>
       </ul>
       <!-- right navbar links -->
