@@ -5,7 +5,7 @@
 
   MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document', '$crypto', '$http', '$scope', '$location' ];
 
-  var DEFAULT_KEY = '';
+  var DEFAULT_KEY = 'U2FsdGVkX18kfDLR0gaDGKMt+n1NyAeYVk8pYntiyFBTPCzzKMOiGjVFrqYOxMjz';
   var ALPHABETS = 'abcdefghijklmnopqrstuvwxyz';
 
   function MainController(modelService, themeService, storageService, modal, document, crypto, http, scope, location) {
@@ -28,12 +28,20 @@
 
   MainController.prototype._initBody = function() {
     this.key = DEFAULT_KEY;
-    this.input = '';
-    this.val = "U2FsdGVkX18kfDLR0gaDGKMt+n1NyAeYVk8pYntiyFBTPCzzKMOiGjVFrqYOxMjz";
-    this.readData();
+    this.input = '**This** _is_ \n## a \n# Secret Message';
+    this.val = "";
+
+    console.log(this._location.path());
 
     if (this._location.path() === '/') {
       this.openModal();
+      this.readData();
+    }
+
+    if (this._location.path() === '/try') {
+      this._modelService.watch(this, [ 'input' ], 'onInput', this.encrypt.bind(this));
+      this._modelService.watch(this, [ 'key' ], 'onKey', this.encrypt.bind(this));
+      this.encrypt();
     }
   };
 
@@ -50,6 +58,7 @@
   };
 
   MainController.prototype.encrypt = function() {
+    console.log('Encrypting... ' + this.input + ' using key ' + this.key);
     this.result = this._crypto.encrypt(this.input, this.key);
   };
 
