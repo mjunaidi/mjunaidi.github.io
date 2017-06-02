@@ -8,6 +8,8 @@
       templateUrl : '../app/pnc2/html/body.html'
     }).when("/try", {
       templateUrl : '../app/pnc2/html/edit.html'
+    }).when("/enc", {
+      templateUrl : '../app/pnc2/html/enc.html'
     }).otherwise({
       redirectTo : '/'
     });

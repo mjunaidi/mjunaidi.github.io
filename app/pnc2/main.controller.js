@@ -43,6 +43,12 @@
       this._modelService.watch(this, [ 'key' ], 'onKey', this.encrypt.bind(this));
       this.encrypt();
     }
+
+    if (this._location.path() === '/enc') {
+      this._modelService.watch(this, [ 'input' ], 'onInput', this.encrypt.bind(this));
+      this._modelService.watch(this, [ 'key' ], 'onKey', this.encrypt.bind(this));
+      this.encrypt();
+    }
   };
 
   MainController.prototype.readData = function() {
