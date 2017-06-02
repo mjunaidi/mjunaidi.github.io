@@ -13,3 +13,17 @@ textarea.form-control {
 .cursor-auto {
   cursor: auto !important;
 }
+
+// encrypted
+div.encrypted {
+  display:inline-block;
+  position:relative;
+}
+.encrypted > button{
+  position:absolute;
+  top:10px;
+  right:10px;
+}
+.encrypted > textarea{
+  display:block;
+}

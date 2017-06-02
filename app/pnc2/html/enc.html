@@ -22,8 +22,15 @@
         <div class="col-xs-4 max-height">
           <div markdown-it="ctrl.input"></div>
         </div>
-        <div class="col-xs-4 max-height no-padding">
-          <textarea class="form-control cursor-auto" ng-model="ctrl.result" readonly="true"></textarea>
+        <div class="col-xs-4 max-height no-padding encrypted">
+          <button ng-if="ctrl.focus" class="btn btn-primary" type="submit" ng-click="ctrl.encrypt()">
+            <span class="glyphicon glyphicon-copy"></span> Copy
+          </button>
+          <textarea class="form-control cursor-auto"
+            ng-model="ctrl.result"
+            ng-focus="ctrl.focus=true"
+            ng-blur="ctrl.focus=false"
+            readonly></textarea>
         </div>
       </div>
     </div>
