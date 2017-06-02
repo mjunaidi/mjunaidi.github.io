@@ -21,10 +21,15 @@
     this._timeout = timeout;
 
     this._initHeader();
-    this._initBody();
+    // _initBody called with ng-init in each page
+    //this._initBody();
   }
 
   MainController.prototype._initHeader = function() {
+    this.key = DEFAULT_KEY;
+    this.input = '**This** _is_ \n## a \n# Secret Message';
+    this.val = "";
+
     this.navbar = {
       templateUrl : '../app/pnc2/html/navbar.html',
       pages: [
@@ -35,6 +40,12 @@
         }
       ]
     };
+
+    //this.themes = this._themeService.themes();
+    this.themes = [ "default", "cerulean", "cosmo", "cyborg", "darkly", "flatly",
+              "journal", "lumen", "paper", "readable", "sandstone", "simplex",
+              "slate", "solar", "spacelab", "superhero", "united", "yeti" ]; // zero-index
+    this.store('theme', this._themeService.pick(13));
 
     this.aboutOpts = {
       templateUrl : '../app/pnc2/html/about.html',
@@ -47,20 +58,10 @@
         };
       }
     };
-
-    //this.themes = this._themeService.themes();
-    this.themes = [ "default", "cerulean", "cosmo", "cyborg", "darkly", "flatly",
-              "journal", "lumen", "paper", "readable", "sandstone", "simplex",
-              "slate", "solar", "spacelab", "superhero", "united", "yeti" ]; // zero-index
-    this.store('theme', this._themeService.pick(13));
   };
 
   MainController.prototype._initBody = function() {
-    this.key = DEFAULT_KEY;
-    this.input = '**This** _is_ \n## a \n# Secret Message';
-    this.val = "";
-
-    console.log(this._location.path());
+    //console.log(this._location.path());
 
     if (this._location.path() === '/') {
       this.openModal();
@@ -93,7 +94,7 @@
   };
 
   MainController.prototype.encrypt = function() {
-    console.log('Encrypting... ' + this.input + ' using key ' + this.key);
+    //console.log('Encrypting... ' + this.input + ' using key ' + this.key);
     this.result = this._crypto.encrypt(this.input, this.key);
   };
 
@@ -117,9 +118,9 @@
       }, 1200
     );
 
-    console.info('Action:', e.action);
-    console.info('Text:', e.text);
-    console.info('Trigger:', e.trigger);
+    //console.info('Action:', e.action);
+    //console.info('Text:', e.text);
+    //console.info('Trigger:', e.trigger);
 
     e.clearSelection();
   };
