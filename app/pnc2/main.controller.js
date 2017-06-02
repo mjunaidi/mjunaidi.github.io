@@ -3,12 +3,12 @@
 
   angular.module('app.model').controller('MainController', MainController);
 
-  MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document', '$crypto', '$http', '$scope', '$location' ];
+  MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document', '$crypto', '$http', '$scope', '$location', '$timeout' ];
 
   var DEFAULT_KEY = 'U2FsdGVkX18kfDLR0gaDGKMt+n1NyAeYVk8pYntiyFBTPCzzKMOiGjVFrqYOxMjz';
   var ALPHABETS = 'abcdefghijklmnopqrstuvwxyz';
 
-  function MainController(modelService, themeService, storageService, modal, document, crypto, http, scope, location) {
+  function MainController(modelService, themeService, storageService, modal, document, crypto, http, scope, location, timeout) {
     this._modelService = modelService;
     this._themeService = themeService;
     this._storageService = storageService;
@@ -18,6 +18,7 @@
     this._http = http;
     this._scope = scope;
     this._location = location;
+    this._timeout = timeout;
 
     this._initHeader();
     this._initBody();
@@ -79,6 +80,14 @@
   MainController.prototype.copied = function(e) {
     // hide copy button
     this.focus = false;
+    this.isCopied = true;
+
+      // hide copied alert message
+    var ctrl = this;
+    this._timeout(function() {
+        ctrl.isCopied = false;
+      }, 1200
+    );
 
     console.info('Action:', e.action);
     console.info('Text:', e.text);

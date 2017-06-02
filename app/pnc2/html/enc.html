@@ -23,6 +23,9 @@
           <div markdown-it="ctrl.input"></div>
         </div>
         <div class="col-xs-4 max-height no-padding encrypted">
+
+          <div ng-if="ctrl.isCopied" class="alert alert-success" role="alert">Copied!</div>
+
           <button ng-if="ctrl.focus"
                 ngclipboard
                 data-clipboard-target="#result"

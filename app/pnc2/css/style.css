@@ -19,11 +19,16 @@ div.encrypted {
   display:inline-block;
   position:relative;
 }
-.encrypted > button{
+.encrypted > button {
   position:absolute;
   top:10px;
   right:10px;
 }
-.encrypted > textarea{
+.encrypted > textarea {
   display:block;
+}
+.encrypted > .alert {
+  position:absolute;
+  top:10px;
+  right:10px;
 }
