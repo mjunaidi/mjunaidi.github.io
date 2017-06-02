@@ -186,7 +186,7 @@
 
   MainController.prototype.openModal = function() {
     this.modal({
-      templateUrl: '../app/pnc/html/modal.html'
+      templateUrl: '../app/pnc2/html/modal.html'
     });
   };
 
