@@ -1,10 +1,8 @@
 <div class="row" ng-init="ctrl._initBody()">
-  <div class="col-xs-12">
-    <div class="row">
-      <button class="btn btn-default pull-right" type="submit" ng-click="ctrl.openModal()">
-        <span class="glyphicon glyphicon-eye-open"></span>
-      </button>
-    </div>
+  <div class="col-xs-12 home">
+    <button class="btn btn-default pull-right open-key-modal" type="button" ng-click="ctrl.openModal()">
+      <span class="glyphicon glyphicon-eye-open"></span>
+    </button>
 
     <div class="row show-grid" ng-hide="ctrl.valid">
       <div class="col-xs-12 break-word"  ng-repeat="r in ctrl.records track by $index">
