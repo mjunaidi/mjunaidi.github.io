@@ -14,6 +14,8 @@
       templateUrl : '../app/pnc2/html/dec.html'
     }).when("/uuid", {
       templateUrl : '../app/pnc2/html/uuid.html'
+    }).when("/exp", {
+      templateUrl : '../app/pnc2/html/exp.html'
     }).otherwise({
       redirectTo : '/'
     });

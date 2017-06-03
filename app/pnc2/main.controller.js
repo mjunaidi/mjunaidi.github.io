@@ -47,6 +47,8 @@
           "name" : "Decrypt", "path" : "/dec"
         }, {
           "name" : "UUID", "path" : "/uuid"
+        }, {
+          "name" : "Experiment", "path" : "/exp"
         }
       ]
     };
@@ -111,9 +113,27 @@
     if (this._location.path() === '/uuid') {
       this.generateUuid();
     }
+
+    if (this._location.path() === '/exp') {
+      this.readData();
+    }
   };
 
   MainController.prototype.readData = function() {
+    var path = "../app/pnc2/data/l";
+    var ctrl = this;
+    this._http.get(path)
+      .success(function (data) {
+        console.log(data);
+        //ctrl.val = data.value;
+      })
+      .error(function (data) {
+        console.log(data);
+      });
+  };
+
+  // obsolete
+  MainController.prototype.readDataOld = function() {
     var path = "../app/pnc2/json/data.json";
     var ctrl = this;
     this._http.get(path)
