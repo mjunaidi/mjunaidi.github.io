@@ -155,7 +155,11 @@
     this.dRecords = [];
     for (var i in this.records) {
       var record = this.records[i];
-      var decrypted = this._crypto.decrypt(record, this.key);
+      try {
+        var decrypted = this._crypto.decrypt(record, this.key);
+      } catch (e) {
+         console.log(e);
+      }
       this.dRecords.push(decrypted);
     }
   };
