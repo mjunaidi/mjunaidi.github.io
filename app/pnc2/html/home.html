@@ -5,13 +5,29 @@
         <span class="glyphicon glyphicon-eye-open"></span>
       </button>
     </div>
-    <div class="row" ng-hide="ctrl.decrypted">
+
+    <div class="row show-grid" ng-hide="ctrl.valid">
+      <div class="col-xs-12 break-word"  ng-repeat="r in ctrl.records track by $index">
+        {{r}}
+      </div>
+    </div>
+
+    <div class="row" ng-show="ctrl.valid">
+      <div class="col-xs-12">
+        <div class="row show-grid" ng-repeat="d in ctrl.dRecords track by $index">
+          <div class="col-xs-12" markdown-it="d">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--<div class="row" ng-hide="ctrl.decrypted">
       <div class="col-xs-12" markdown-it="ctrl.val">
       </div>
     </div>
     <div class="row" ng-show="ctrl.decrypted">
       <div class="col-xs-12" markdown-it="ctrl.decrypted">
       </div>
-    </div>
+    </div>-->
   </div>
 </div>

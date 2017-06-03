@@ -86,6 +86,9 @@
     //console.log(this._location.path());
 
     if (this._location.path() === '/') {
+      this.experiment();
+      this._modelService.watch(this, [ 'key' ], 'onKey', this.decryptExp.bind(this));
+
       this.readData();
       if (!this.key) {
         this.openModal();
@@ -157,6 +160,9 @@
       var record = this.records[i];
       try {
         var decrypted = this._crypto.decrypt(record, this.key);
+        if (decrypted) {
+          this.valid = true;
+        }
       } catch (e) {
          console.log(e);
       }
