@@ -161,12 +161,12 @@
       try {
         var decrypted = this._crypto.decrypt(record, this.key);
         if (decrypted) {
+          this.dRecords.push(decrypted);
           this.valid = true;
         }
       } catch (e) {
          console.log(e);
       }
-      this.dRecords.push(decrypted);
     }
   };
 
