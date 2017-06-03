@@ -78,7 +78,6 @@
 
     if (this._location.path() === '/') {
       this.readData();
-      console.log(this.key);
       if (!this.key) {
         this.openModal();
       }
