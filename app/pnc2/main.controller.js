@@ -155,6 +155,9 @@
   };
 
   MainController.prototype.decryptExp = function() {
+    if (!this.key) {
+      return;
+    }
     this.dRecords = [];
     this.valid = false;
     for (var i in this.records) {
