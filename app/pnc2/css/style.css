@@ -38,9 +38,9 @@ div.encrypted {
 }
 
 .copy-container > .alert {
-  position:absolute;
-  top:0;
-  right:50%;
+  position: absolute;
+  top: 35%;
+  right: 46%;
 }
 
 /* preview */
