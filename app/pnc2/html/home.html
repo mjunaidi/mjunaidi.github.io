@@ -8,6 +8,14 @@
         <span ng-if="ctrl.markdown" class="glyphicon glyphicon-chevron-up"></span>
         <span ng-if="!ctrl.markdown" class="glyphicon glyphicon-chevron-down"></span>
       </button>
+      <button class="btn btn-default pull-right"
+            ngclipboard
+            data-clipboard-text="{{ctrl.dRecords[0]}}"
+            ngclipboard-success="ctrl.copied(e)"
+            class="btn btn-primary"
+            type="button">
+        <span class="glyphicon glyphicon-copy"></span>
+      </button>
     </div>
 
     <div class="row show-grid" ng-hide="ctrl.valid">

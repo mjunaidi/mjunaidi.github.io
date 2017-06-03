@@ -35,6 +35,7 @@
     this.key = '';
     this.input = '**This** _is_ \n## a \n# Secret Message';
     this.val = "";
+    this.markdown = true;
 
     // inlude to display Experiment in navbar
     // "name" : "Experiment", "path" : "/exp"
