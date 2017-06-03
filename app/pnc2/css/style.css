@@ -37,6 +37,12 @@ div.encrypted {
   right:10px;
 }
 
+.copy-container > .alert {
+  position:absolute;
+  top:0;
+  right:50%;
+}
+
 /* preview */
 .preview > p {
   word-wrap:break-word;

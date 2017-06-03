@@ -28,8 +28,11 @@
                 type="submit">
             <span class="glyphicon glyphicon-paste"></span> Paste
           </button>
-          <textarea class="form-control" ng-model="ctrl.encrypted" ng-change="ctrl.set('encrypted',ctrl.encrypted)"
-                ng-focus="ctrl.focus=true"></textarea>
+          <textarea class="form-control"
+                ng-model="ctrl.encrypted"
+                ng-change="ctrl.set('encrypted',ctrl.encrypted)"
+                ng-focus="ctrl.focus=true"
+                ng-blur="ctrl.focus=false"></textarea>
         </div>
 
         <div class="col-xs-6 max-height">

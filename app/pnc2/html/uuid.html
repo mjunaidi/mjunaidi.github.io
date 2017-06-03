@@ -1,0 +1,32 @@
+<div class="row max-height" ng-init="ctrl._initBody()">
+  <div class="col-xs-12 max-height">
+
+    <div class="row show-grid">
+      <div class="col-lg-12">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit" ng-click="ctrl.generateUuid()">
+              <span class="glyphicon glyphicon-eye-close"></span> Generate it!
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row show-grid">
+      <div class="col-xs-12 copy-container">
+        <span ng-if="ctrl.isCopied" class="alert alert-success" role="alert">Copied!</span>
+        <h3>{{ctrl.uuid}}</h3>
+        <button ng-if="ctrl.uuid"
+              ngclipboard
+              data-clipboard-text="{{ctrl.uuid}}"
+              ngclipboard-success="ctrl.uuidCopied(e)"
+              class="btn btn-primary"
+              type="submit">
+          <span class="glyphicon glyphicon-copy"></span> Copy
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

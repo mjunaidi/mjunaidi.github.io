@@ -45,6 +45,8 @@
           "name" : "Encrypt", "path" : "/enc"
         }, {
           "name" : "Decrypt", "path" : "/dec"
+        }, {
+          "name" : "UUID", "path" : "/uuid"
         }
       ]
     };
@@ -105,6 +107,10 @@
       this._modelService.watch(this, [ 'key' ], 'onKey', this.decryptEnc.bind(this));
       this.decryptEnc();
     }
+
+    if (this._location.path() === '/uuid') {
+      this.generateUuid();
+    }
   };
 
   MainController.prototype.readData = function() {
@@ -164,6 +170,19 @@
     var ctrl = this;
     this._timeout(function() {
         ctrl.isPasted = false;
+      }, 1200
+    );
+  };
+
+  MainController.prototype.generateUuid = function() {
+    this.uuid = this._uuid4.generate();
+  };
+
+  MainController.prototype.uuidCopied = function() {
+    this.isCopied = true;
+    var ctrl = this;
+    this._timeout(function() {
+        ctrl.isCopied = false;
       }, 1200
     );
   };
