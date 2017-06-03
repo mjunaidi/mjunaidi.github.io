@@ -89,7 +89,7 @@
       this.experiment();
       this._modelService.watch(this, [ 'key' ], 'onKey', this.decryptExp.bind(this));
 
-      this.readData();
+      //this.readData();
       if (!this.key) {
         this.openModal();
       }
