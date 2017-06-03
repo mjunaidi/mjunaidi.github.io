@@ -15,6 +15,7 @@
     'mdo-angular-cryptography',
     'mdMarkdownIt',
     'ngclipboard',
-    'cfp.hotkeys'
+    'cfp.hotkeys',
+    'ng-autofocus'
   ]);
 })();
