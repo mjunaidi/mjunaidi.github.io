@@ -36,6 +36,8 @@
     this.input = '**This** _is_ \n## a \n# Secret Message';
     this.val = "";
 
+    // inlude to display Experiment in navbar
+    // "name" : "Experiment", "path" : "/exp"
     this.navbar = {
       templateUrl : '../app/pnc2/html/navbar.html',
       pages: [
@@ -47,8 +49,6 @@
           "name" : "Decrypt", "path" : "/dec"
         }, {
           "name" : "UUID", "path" : "/uuid"
-        }, {
-          "name" : "Experiment", "path" : "/exp"
         }
       ]
     };
