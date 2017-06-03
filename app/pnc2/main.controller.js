@@ -3,12 +3,16 @@
 
   angular.module('app.model').controller('MainController', MainController);
 
-  MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document', '$crypto', '$http', '$scope', '$location', '$timeout', 'hotkeys' ];
+  MainController.$inject = [ 'modelService', 'themeService', 'storageService',
+              '$modal', '$document', '$crypto', '$http', '$scope', '$location',
+              '$timeout', 'hotkeys', 'uuid4'
+            ];
 
   var DEFAULT_KEY = 'U2FsdGVkX18kfDLR0gaDGKMt+n1NyAeYVk8pYntiyFBTPCzzKMOiGjVFrqYOxMjz';
   var ALPHABETS = 'abcdefghijklmnopqrstuvwxyz';
 
-  function MainController(modelService, themeService, storageService, modal, document, crypto, http, scope, location, timeout, hotkeys) {
+  function MainController(modelService, themeService, storageService, modal,
+          document, crypto, http, scope, location, timeout, hotkeys, uuid4) {
     this._modelService = modelService;
     this._themeService = themeService;
     this._storageService = storageService;
@@ -20,6 +24,7 @@
     this._location = location;
     this._timeout = timeout;
     this._hotkeys = hotkeys;
+    this._uuid4 = uuid4;
 
     this._initHeader();
     // _initBody called with ng-init in each page

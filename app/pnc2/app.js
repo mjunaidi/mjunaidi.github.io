@@ -16,6 +16,7 @@
     'mdMarkdownIt',
     'ngclipboard',
     'cfp.hotkeys',
-    'ng-autofocus'
+    'ng-autofocus',
+    'uuid4'
   ]);
 })();
