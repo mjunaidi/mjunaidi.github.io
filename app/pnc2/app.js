@@ -14,6 +14,7 @@
     'app.model',
     'mdo-angular-cryptography',
     'mdMarkdownIt',
-    'ngclipboard'
+    'ngclipboard',
+    'cfp.hotkeys'
   ]);
 })();

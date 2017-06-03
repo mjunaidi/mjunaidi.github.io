@@ -19,12 +19,23 @@
 
     <div class="row show-grid max-height">
       <div class="col-xs-12 max-height">
-        <div class="col-xs-6 max-height no-padding">
-          <textarea class="form-control" ng-model="ctrl.encrypted" ng-change="ctrl.set('encrypted',ctrl.encrypted)"></textarea>
+
+        <div class="col-xs-6 max-height no-padding encrypted">
+          <div ng-if="ctrl.isPasted" class="alert alert-success" role="alert">Pasted!</div>
+          <button ng-if="ctrl.focus"
+                ng-click="ctrl.pasteEnc()"
+                class="btn btn-primary"
+                type="submit">
+            <span class="glyphicon glyphicon-paste"></span> Paste
+          </button>
+          <textarea class="form-control" ng-model="ctrl.encrypted" ng-change="ctrl.set('encrypted',ctrl.encrypted)"
+                ng-focus="ctrl.focus=true"></textarea>
         </div>
+
         <div class="col-xs-6 max-height">
           <div markdown-it="ctrl.output" class="preview"></div>
         </div>
+
       </div>
     </div>
 

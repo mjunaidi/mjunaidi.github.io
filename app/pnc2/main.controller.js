@@ -3,12 +3,12 @@
 
   angular.module('app.model').controller('MainController', MainController);
 
-  MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document', '$crypto', '$http', '$scope', '$location', '$timeout' ];
+  MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document', '$crypto', '$http', '$scope', '$location', '$timeout', 'hotkeys' ];
 
   var DEFAULT_KEY = 'U2FsdGVkX18kfDLR0gaDGKMt+n1NyAeYVk8pYntiyFBTPCzzKMOiGjVFrqYOxMjz';
   var ALPHABETS = 'abcdefghijklmnopqrstuvwxyz';
 
-  function MainController(modelService, themeService, storageService, modal, document, crypto, http, scope, location, timeout) {
+  function MainController(modelService, themeService, storageService, modal, document, crypto, http, scope, location, timeout, hotkeys) {
     this._modelService = modelService;
     this._themeService = themeService;
     this._storageService = storageService;
@@ -19,6 +19,7 @@
     this._scope = scope;
     this._location = location;
     this._timeout = timeout;
+    this._hotkeys = hotkeys;
 
     this._initHeader();
     // _initBody called with ng-init in each page
@@ -60,6 +61,16 @@
         };
       }
     };
+
+    // You can pass it an object.  This hotkey will not be unbound unless manually removed
+    // using the hotkeys.del() method
+    this._hotkeys.add({
+      combo: 'ctrl+v',
+      description: 'Paste from clipboard',
+      callback: function() {
+        console.log('ctrl+v');
+      }
+    });
   };
 
   MainController.prototype._initBody = function() {
@@ -128,7 +139,7 @@
     this.focus = false;
     this.isCopied = true;
 
-      // hide copied alert message
+    // hide copied alert message
     var ctrl = this;
     this._timeout(function() {
         ctrl.isCopied = false;
@@ -140,6 +151,17 @@
     //console.info('Trigger:', e.trigger);
 
     e.clearSelection();
+  };
+
+  MainController.prototype.pasteEnc = function() {
+    this.encrypted = this.result;
+    this.focus = false;
+    this.isPasted = true;
+    var ctrl = this;
+    this._timeout(function() {
+        ctrl.isPasted = false;
+      }, 1200
+    );
   };
 
   MainController.prototype.save = function(str) {
