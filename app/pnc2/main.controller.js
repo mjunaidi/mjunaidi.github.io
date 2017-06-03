@@ -50,6 +50,8 @@
           "name" : "Decrypt", "path" : "/dec"
         }, {
           "name" : "UUID", "path" : "/uuid"
+        }, {
+          "name" : "Experiment", "path" : "/exp"
         }
       ]
     };
