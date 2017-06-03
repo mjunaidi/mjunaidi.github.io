@@ -115,25 +115,53 @@
     }
 
     if (this._location.path() === '/exp') {
-      this.readData();
+      this.experiment();
+      this._modelService.watch(this, [ 'key' ], 'onKey', this.decryptExp.bind(this));
     }
   };
 
-  MainController.prototype.readData = function() {
-    var path = "../app/pnc2/data/l";
+  MainController.prototype.experiment = function() {
+    var path = "../app/pnc2/data/";
+    var lPath = path + "l";
+    this.dataPaths = [];
+    this.records = [];
     var ctrl = this;
-    this._http.get(path)
+    this._http.get(lPath)
       .success(function (data) {
-        console.log(data);
-        //ctrl.val = data.value;
+        var lines = data.split("\n");
+        for (var i in lines) {
+          var line = lines[i];
+          if (line) {
+            ctrl.dataPaths.push(line);
+          }
+        }
+        for (var i in ctrl.dataPaths) {
+          var dataPath = path + ctrl.dataPaths[i];
+          ctrl._http.get(dataPath)
+            .success(function (dataData) {
+              ctrl.records.push(dataData);
+            })
+            .error(function (dataData) {
+              console.log(data);
+            });
+        }
       })
       .error(function (data) {
         console.log(data);
       });
   };
 
+  MainController.prototype.decryptExp = function() {
+    this.dRecords = [];
+    for (var i in this.records) {
+      var record = this.records[i];
+      var decrypted = this._crypto.decrypt(record, this.key);
+      this.dRecords.push(decrypted);
+    }
+  };
+
   // obsolete
-  MainController.prototype.readDataOld = function() {
+  MainController.prototype.readData = function() {
     var path = "../app/pnc2/json/data.json";
     var ctrl = this;
     this._http.get(path)
