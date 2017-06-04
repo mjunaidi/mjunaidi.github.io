@@ -12,8 +12,9 @@
 
 <!-- Bootstrap core CSS -->
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="../bootswatch/bootstrap-solar.min.css" rel="stylesheet">
-<link href="../pnc/style.css" rel="stylesheet">
+<link ng-if="ctrl.theme && ctrl.theme !== 'default'" ng-href="../bootswatch/bootstrap-{{ ctrl.theme }}.min.css" rel="stylesheet">
+
+<link href="../app/pnc/css/style.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -69,11 +70,19 @@
   <script src="../app/model/model.service.js"></script>
   <script src="../app/model/model.controller.js"></script>
 
+  <!-- pnc -->
+  <script src="../app/lib/hotkeys.min.js"></script>
+  <script src="../app/lib/ng-autofocus.min.js"></script>
+  <script src="../app/lib/angular-uuid4.min.js"></script>
+
   <script src="../app/lib/markdown-it.min.js"></script>
   <script src="../app/lib/ng-markdownit.min.js"></script>
 
   <script src="../app/lib/aes.js"></script>
   <script src="../app/lib/mdo-angular-cryptography.js"></script>
+
+  <script src="../app/lib/clipboard.min.js"></script>
+  <script src="../app/lib/ngclipboard.min.js"></script>
 
   <script src="../app/pnc/main.controller.js"></script>
   <script src="../app/pnc/modal.controller.js"></script>

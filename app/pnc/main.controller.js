@@ -3,12 +3,16 @@
 
   angular.module('app.model').controller('MainController', MainController);
 
-  MainController.$inject = [ 'modelService', 'themeService', 'storageService', '$modal', '$document', '$crypto', '$http', '$scope' ];
+  MainController.$inject = [ 'modelService', 'themeService', 'storageService',
+              '$modal', '$document', '$crypto', '$http', '$scope', '$location',
+              '$timeout', 'hotkeys', 'uuid4'
+            ];
 
-  var DEFAULT_KEY = '';
+  var DEFAULT_KEY = 'U2FsdGVkX18kfDLR0gaDGKMt+n1NyAeYVk8pYntiyFBTPCzzKMOiGjVFrqYOxMjz';
   var ALPHABETS = 'abcdefghijklmnopqrstuvwxyz';
 
-  function MainController(modelService, themeService, storageService, modal, document, crypto, http, scope) {
+  function MainController(modelService, themeService, storageService, modal,
+          document, crypto, http, scope, location, timeout, hotkeys, uuid4) {
     this._modelService = modelService;
     this._themeService = themeService;
     this._storageService = storageService;
@@ -17,22 +21,163 @@
     this._crypto = crypto;
     this._http = http;
     this._scope = scope;
+    this._location = location;
+    this._timeout = timeout;
+    this._hotkeys = hotkeys;
+    this._uuid4 = uuid4;
 
     this._initHeader();
-    this._initBody();
+    // _initBody called with ng-init in each page
+    //this._initBody();
   }
 
   MainController.prototype._initHeader = function() {
+    this.key = '';
+    this.input = '**This** _is_ \n## a \n# Secret Message';
+    this.val = "";
+    this.markdown = true;
+
+    // inlude to display Experiment in navbar
+    // "name" : "Experiment", "path" : "/exp"
+    this.navbar = {
+      templateUrl : '../app/pnc/html/navbar.html',
+      pages: [
+        {
+          "name" : "Home", "path" : "/"
+        }, {
+          "name" : "Encrypt", "path" : "/enc"
+        }, {
+          "name" : "Decrypt", "path" : "/dec"
+        }, {
+          "name" : "UUID", "path" : "/uuid"
+        }, {
+          "name" : "Experiment", "path" : "/exp"
+        }
+      ]
+    };
+
+    //this.themes = this._themeService.themes();
+    this.themes = [ "default", "cerulean", "cosmo", "cyborg", "darkly", "flatly",
+              "journal", "lumen", "paper", "readable", "sandstone", "simplex",
+              "slate", "solar", "spacelab", "superhero", "united", "yeti" ]; // zero-index
+    this.store('theme', this._themeService.pick(13));
+
+    this.aboutOpts = {
+      templateUrl : '../app/pnc/html/about.html',
+      config : function() {
+        return {
+          'get' : {
+            'paths' : [ '../app/pnc/json/about.json' ],
+            'key' : 'init'
+          }
+        };
+      }
+    };
+
+    // You can pass it an object.  This hotkey will not be unbound unless manually removed
+    // using the hotkeys.del() method
+    this._hotkeys.add({
+      combo: 'ctrl+v',
+      description: 'Paste from clipboard',
+      callback: function() {
+        console.log('ctrl+v');
+      }
+    });
   };
 
   MainController.prototype._initBody = function() {
-    this.key = DEFAULT_KEY;
-    this.input = '';
-    this.val = "U2FsdGVkX18kfDLR0gaDGKMt+n1NyAeYVk8pYntiyFBTPCzzKMOiGjVFrqYOxMjz";
-    this.readData();
-    this.openModal();
+    //console.log(this._location.path());
+
+    if (this._location.path() === '/') {
+      this.experiment();
+      this._modelService.watch(this, [ 'key' ], 'onKey', this.decryptExp.bind(this));
+
+      //this.readData();
+      if (!this.key) {
+        this.openModal();
+      }
+    }
+
+    if (this._location.path() === '/try') {
+      this._modelService.watch(this, [ 'input' ], 'onInput', this.encrypt.bind(this));
+      this._modelService.watch(this, [ 'key' ], 'onKey', this.encrypt.bind(this));
+      this.encrypt();
+    }
+
+    if (this._location.path() === '/enc') {
+      this._modelService.watch(this, [ 'input' ], 'onInput', this.encrypt.bind(this));
+      this._modelService.watch(this, [ 'key' ], 'onKey', this.encrypt.bind(this));
+      this.encrypt();
+    }
+
+    if (this._location.path() === '/dec') {
+      this._modelService.watch(this, [ 'encrypted' ], 'onEncrypted', this.decryptEnc.bind(this));
+      this._modelService.watch(this, [ 'key' ], 'onKey', this.decryptEnc.bind(this));
+      this.decryptEnc();
+    }
+
+    if (this._location.path() === '/uuid') {
+      this.generateUuid();
+    }
+
+    if (this._location.path() === '/exp') {
+      this.experiment();
+      this._modelService.watch(this, [ 'key' ], 'onKey', this.decryptExp.bind(this));
+    }
   };
 
+  MainController.prototype.experiment = function() {
+    var path = "../app/pnc/data/";
+    var lPath = path + "l";
+    this.dataPaths = [];
+    this.records = [];
+    var ctrl = this;
+    this._http.get(lPath)
+      .success(function (data) {
+        var lines = data.split("\n");
+        for (var i in lines) {
+          var line = lines[i];
+          if (line) {
+            ctrl.dataPaths.push(line);
+          }
+        }
+        for (var i in ctrl.dataPaths) {
+          var dataPath = path + ctrl.dataPaths[i];
+          ctrl._http.get(dataPath)
+            .success(function (dataData) {
+              ctrl.records.push(dataData);
+            })
+            .error(function (dataData) {
+              console.log(data);
+            });
+        }
+      })
+      .error(function (data) {
+        console.log(data);
+      });
+  };
+
+  MainController.prototype.decryptExp = function() {
+    if (!this.key) {
+      return;
+    }
+    this.dRecords = [];
+    this.valid = false;
+    for (var i in this.records) {
+      var record = this.records[i];
+      try {
+        var decrypted = this._crypto.decrypt(record, this.key);
+        if (decrypted) {
+          this.dRecords.push(decrypted);
+          this.valid = true;
+        }
+      } catch (e) {
+         console.log(e);
+      }
+    }
+  };
+
+  // obsolete
   MainController.prototype.readData = function() {
     var path = "../app/pnc/json/data.json";
     var ctrl = this;
@@ -46,6 +191,7 @@
   };
 
   MainController.prototype.encrypt = function() {
+    //console.log('Encrypting... ' + this.input + ' using key ' + this.key);
     this.result = this._crypto.encrypt(this.input, this.key);
   };
 
@@ -55,6 +201,55 @@
 
   MainController.prototype.decryptVal = function() {
     this.decrypted = this._crypto.decrypt(this.val, this.key);
+  };
+
+  MainController.prototype.decryptEnc = function() {
+    if (this.encrypted) {
+      this.output = this._crypto.decrypt(this.encrypted, this.key);
+    }
+  };
+
+  MainController.prototype.copied = function(e) {
+    // hide copy button
+    this.focus = false;
+    this.isCopied = true;
+
+    // hide copied alert message
+    var ctrl = this;
+    this._timeout(function() {
+        ctrl.isCopied = false;
+      }, 1200
+    );
+
+    //console.info('Action:', e.action);
+    //console.info('Text:', e.text);
+    //console.info('Trigger:', e.trigger);
+
+    e.clearSelection();
+  };
+
+  MainController.prototype.pasteEnc = function() {
+    this.encrypted = this.result;
+    this.focus = false;
+    this.isPasted = true;
+    var ctrl = this;
+    this._timeout(function() {
+        ctrl.isPasted = false;
+      }, 1200
+    );
+  };
+
+  MainController.prototype.generateUuid = function() {
+    this.uuid = this._uuid4.generate();
+  };
+
+  MainController.prototype.uuidCopied = function() {
+    this.isCopied = true;
+    var ctrl = this;
+    this._timeout(function() {
+        ctrl.isCopied = false;
+      }, 1200
+    );
   };
 
   MainController.prototype.save = function(str) {

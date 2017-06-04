@@ -13,6 +13,10 @@
     'app.theme',
     'app.model',
     'mdo-angular-cryptography',
-    'mdMarkdownIt'
+    'mdMarkdownIt',
+    'ngclipboard',
+    'cfp.hotkeys',
+    'ng-autofocus',
+    'uuid4'
   ]);
 })();
