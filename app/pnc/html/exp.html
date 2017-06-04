@@ -18,13 +18,22 @@
       </div>
     </div>
 
-    <div class="row show-grid" ng-repeat="r in ctrl.records track by $index">
-      <div class="col-xs-12 break-word">
-        {{r}}
-      </div>
-    </div>
-    <div class="row show-grid" ng-repeat="d in ctrl.dRecords track by $index">
-      <div class="col-xs-12" markdown-it="d">
+    <div class="row show-grid">
+      <div class="col-xs-12">
+
+          <div class="col-xs-6">
+            <div class="break-word show-grid" ng-repeat="r in ctrl.records track by $index">
+              {{r}}
+            </div>
+          </div>
+
+          <div class="col-xs-6">
+            <div ng-repeat="d in ctrl.dRecords track by $index" class="row-bordered">
+              <div markdown-it="d" class="break-word">
+              </div>
+            </div>
+          </div>
+
       </div>
     </div>
   </div>
