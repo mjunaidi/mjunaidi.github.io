@@ -264,6 +264,9 @@
           ctrl.fk = '';
           ctrl.sk = '';
           ctrl.auth = true;
+          ctrl.authErr = false;
+        } else {
+          ctrl.authErr = true;
         }
       })
       .error(function (data) {

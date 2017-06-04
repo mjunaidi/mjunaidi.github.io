@@ -26,30 +26,34 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-
-              <form ng-if="!ctrl.auth">
-                <div class="form-group">
-                  <input ng-model="ctrl.fk"
-                    type="password"
-                    class="form-control"
-                    placeholder=""
-                    autofocus>
+              <div ng-if="!ctrl.auth" class="dropdown-container">
+                <div ng-if="ctrl.authErr" class="alert alert-danger" role="alert">
+                  <span class="glyphicon glyphicon-warning-sign"></span>
+                  <strong>Try again!</strong>
                 </div>
-                <div class="form-group">
-                  <input ng-model="ctrl.sk"
-                    type="password"
-                    class="form-control"
-                    placeholder="">
-                </div>
-                <button ng-click="ctrl.enter()" type="submit" class="btn btn-warning btn-block">
-                  <span class="glyphicon glyphicon-log-in"><span> Go!
-                </button>
-              </form>
 
+                <form>
+                  <div class="form-group">
+                    <input ng-model="ctrl.fk"
+                      type="password"
+                      class="form-control"
+                      placeholder=""
+                      autofocus>
+                  </div>
+                  <div class="form-group">
+                    <input ng-model="ctrl.sk"
+                      type="password"
+                      class="form-control"
+                      placeholder="">
+                  </div>
+                  <button ng-click="ctrl.enter()" type="submit" class="btn btn-warning btn-block">
+                    <span class="glyphicon glyphicon-log-in"><span> Go!
+                  </button>
+                </form>
+              </div>
               <a ng-if="ctrl.auth" href="" ng-click="ctrl.exit()">
                 <span class="glyphicon glyphicon-log-out"></span> Exit
               </a>
-
             </li>
           </ul>
         </li>
