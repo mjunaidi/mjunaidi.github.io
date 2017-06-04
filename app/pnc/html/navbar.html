@@ -18,13 +18,38 @@
       </ul>
       <!-- right navbar links -->
       <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-user"></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <form>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="" autofocus>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="">
+                </div>
+                <button type="submit" class="btn btn-warning btn-block">
+                  <span class="glyphicon glyphicon-road"><span> Go!
+                </button>
+              </form>
+            </li>
+          </ul>
+        </li>
+
         <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li ng-repeat="t in ctrl.themes"><a href="" ng-click="ctrl.set('theme',t)"> <span ng-if="t === ctrl.theme" class="glyphicon glyphicon-ok"></span> {{ t }}
             </a></li>
           </ul>
         </li>
+
         <li><a ng-click="ctrl.modal(ctrl.aboutOpts)" href=""><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></li>
+
       </ul>
     </div>
     <!-- /.nav-collapse -->
