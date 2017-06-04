@@ -38,10 +38,9 @@
     this.markdown = true;
 
     // inlude to display Experiment in navbar
-    // "name" : "Experiment", "path" : "/exp"
     this.navbar = {
-      templateUrl : '../app/pnc/html/navbar.html',
-      pages: [
+      templateUrl : '../app/pnc/html/navbar.html'
+      /*, pages: [
         {
           "name" : "Home", "path" : "/"
         }, {
@@ -53,7 +52,7 @@
         }, {
           "name" : "Experiment", "path" : "/exp"
         }
-      ]
+      ]*/
     };
 
     //this.themes = this._themeService.themes();
