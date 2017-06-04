@@ -77,3 +77,14 @@ div.home {
   margin-left: 5px;
   margin-right: 5px;
 }
+
+.markdown-container {
+	max-width: 740px;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+  outline: 0;
+  word-break: break-word;
+  word-wrap: break-word;
+	-webkit-font-smoothing: antialiased;
+}
