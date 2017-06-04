@@ -38,7 +38,6 @@
     this.val = "";
     this.markdown = true;
 
-    // inlude to display Experiment in navbar
     this.navbar = {
       templateUrl : '../app/pnc/html/navbar.html'
       /*, pages: [
@@ -267,6 +266,19 @@
           ctrl.sk = '';
           ctrl.auth = true;
           ctrl.authErr = false;
+          ctrl.navbar.pages = [
+            {
+              "name" : "Home", "path" : "/"
+            }, {
+              "name" : "Encrypt", "path" : "/enc"
+            }, {
+              "name" : "Decrypt", "path" : "/dec"
+            }, {
+              "name" : "UUID", "path" : "/uuid"
+            }, {
+              "name" : "Experiment", "path" : "/exp"
+            }
+          ];
         } else {
           ctrl.authErr = true;
         }
@@ -278,6 +290,7 @@
 
   MainController.prototype.exit = function() {
     this.auth = false;
+    this.navbar.pages = [];
   };
 
   MainController.prototype.save = function(str) {
