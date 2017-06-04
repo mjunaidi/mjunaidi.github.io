@@ -32,6 +32,7 @@
   }
 
   MainController.prototype._initHeader = function() {
+    this.mk = 'trendcrypt';
     this.key = '';
     this.input = '**This** _is_ \n## a \n# Secret Message';
     this.val = "";
@@ -249,6 +250,29 @@
         ctrl.isCopied = false;
       }, 1200
     );
+  };
+
+  MainController.prototype.enter = function() {
+    var path = "../app/pnc/data/m";
+    var ctrl = this;
+    ctrl._http.get(path)
+      .success(function (data) {
+        var m = data;
+        var d = ctrl._crypto.decrypt(m, ctrl.mk);
+        var e = ctrl._crypto.decrypt(d, ctrl.sk);
+        if (e === ctrl.fk) {
+          ctrl.fk = '';
+          ctrl.sk = '';
+          ctrl.auth = true;
+        }
+      })
+      .error(function (data) {
+        console.log(data);
+      });
+  };
+
+  MainController.prototype.exit = function() {
+    this.auth = false;
   };
 
   MainController.prototype.save = function(str) {

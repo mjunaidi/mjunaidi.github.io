@@ -26,17 +26,30 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <form>
+
+              <form ng-if="!ctrl.auth">
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="" autofocus>
+                  <input ng-model="ctrl.fk"
+                    type="password"
+                    class="form-control"
+                    placeholder=""
+                    autofocus>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="">
+                  <input ng-model="ctrl.sk"
+                    type="password"
+                    class="form-control"
+                    placeholder="">
                 </div>
-                <button type="submit" class="btn btn-warning btn-block">
-                  <span class="glyphicon glyphicon-road"><span> Go!
+                <button ng-click="ctrl.enter()" type="submit" class="btn btn-warning btn-block">
+                  <span class="glyphicon glyphicon-log-in"><span> Go!
                 </button>
               </form>
+
+              <a ng-if="ctrl.auth" href="" ng-click="ctrl.exit()">
+                <span class="glyphicon glyphicon-log-out"></span> Exit
+              </a>
+
             </li>
           </ul>
         </li>
