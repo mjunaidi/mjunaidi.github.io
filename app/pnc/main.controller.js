@@ -253,6 +253,8 @@
   };
 
   MainController.prototype.enter = function() {
+    if (!this.mk) return;
+    if (!this.sk) return;
     var path = "../app/pnc/data/m";
     var ctrl = this;
     ctrl._http.get(path)
