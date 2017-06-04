@@ -34,7 +34,7 @@
   };
 
   MainController.prototype.readData = function() {
-    var path = "../app/pnc/json/data.json";
+    var path = "../app/pnc0/json/data.json";
     var ctrl = this;
     this._http.get(path)
       .success(function (data) {
@@ -182,7 +182,7 @@
 
   MainController.prototype.openModal = function() {
     this.modal({
-      templateUrl: '../app/pnc/html/modal.html'
+      templateUrl: '../app/pnc0/html/modal.html'
     });
   };
 
