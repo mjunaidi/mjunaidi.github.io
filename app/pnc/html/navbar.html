@@ -12,7 +12,9 @@
         <!--<li ng-repeat="t in ctrl.header.contents" ng-class="ctrl.tag === t.name?'active':''">
           <a href="" ng-click="ctrl.set({'tag':t.name,'slug':'x','first':0})">{{t.label}}</a>
         </li> -->
-        <li ng-repeat="p in ctrl.navbar.pages" ng-class="ctrl._location.path() === p.path?'active':''">
+        <li ng-repeat="p in ctrl.navbar.pages"
+            ng-class="ctrl._location.path() === p.path?'active':''"
+            ng-if="p.ra===true?ctrl.auth:true">
           <a ng-href="#{{p.path}}">{{p.name}}</a>
         </li>
       </ul>

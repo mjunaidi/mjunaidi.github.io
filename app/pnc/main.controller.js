@@ -39,20 +39,20 @@
     this.markdown = true;
 
     this.navbar = {
-      templateUrl : '../app/pnc/html/navbar.html'
-      /*, pages: [
+      templateUrl : '../app/pnc/html/navbar.html',
+      pages: [
         {
-          "name" : "Home", "path" : "/"
+          "name" : "Home", "path" : "/", "ra" : false
         }, {
-          "name" : "Encrypt", "path" : "/enc"
+          "name" : "Encrypt", "path" : "/enc", "ra" : true
         }, {
-          "name" : "Decrypt", "path" : "/dec"
+          "name" : "Decrypt", "path" : "/dec", "ra" : true
         }, {
-          "name" : "UUID", "path" : "/uuid"
+          "name" : "UUID", "path" : "/uuid", "ra" : true
         }, {
-          "name" : "Experiment", "path" : "/exp"
+          "name" : "Experiment", "path" : "/exp", "ra" : true
         }
-      ]*/
+      ]
     };
 
     //this.themes = this._themeService.themes();
@@ -266,19 +266,6 @@
           ctrl.sk = '';
           ctrl.auth = true;
           ctrl.authErr = false;
-          ctrl.navbar.pages = [
-            {
-              "name" : "Home", "path" : "/"
-            }, {
-              "name" : "Encrypt", "path" : "/enc"
-            }, {
-              "name" : "Decrypt", "path" : "/dec"
-            }, {
-              "name" : "UUID", "path" : "/uuid"
-            }, {
-              "name" : "Experiment", "path" : "/exp"
-            }
-          ];
         } else {
           ctrl.authErr = true;
         }
@@ -290,7 +277,6 @@
 
   MainController.prototype.exit = function() {
     this.auth = false;
-    this.navbar.pages = [];
   };
 
   MainController.prototype.save = function(str) {
