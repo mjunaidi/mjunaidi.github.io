@@ -18,7 +18,7 @@
       </button>
     </div>
 
-    <div class="row show-grid" ng-hide="ctrl.valid">
+    <div class="row show-grid content-container" ng-hide="ctrl.valid">
       <div class="col-xs-12 break-word"  ng-repeat="r in ctrl.records track by $index">
         {{r}}
       </div>
@@ -26,8 +26,8 @@
 
     <div class="row" ng-show="ctrl.valid">
       <div class="col-xs-12">
-        <div class="row show-grid row-bordered" ng-repeat="d in ctrl.dRecords track by $index">
-          <div class="col-xs-12 markdown-container center-block" ng-if="ctrl.markdown" markdown-it="d">
+        <div class="row show-grid row-bordered content-container" ng-repeat="d in ctrl.dRecords track by $index">
+          <div class="col-xs-12 center-block" ng-if="ctrl.markdown" markdown-it="d">
           </div>
           <div class="col-xs-12" ng-if="!ctrl.markdown">
             {{d}}
