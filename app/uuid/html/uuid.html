@@ -2,15 +2,14 @@
   <h2 class="text-center first-label">Simple UUID Generator</h2>
   <div class="gap-block center-block"></div>
 
-  <div class="center-block">
-    <span ng-if="!ctrl.isCopied">&nbsp;</span>
-    <span ng-if="ctrl.isCopied" class="center-block text-center" role="alert">Copied!</span>
+  <div class="center-block" style="height:23px;">
+    <span ng-if="ctrl.isCopied" class="center-block text-center animate-if" role="alert">Copied!</span>
   </div>
 
   <!--<span ng-if="ctrl.isCopied" class="alert alert-success center-block" role="alert">Copied!</span>-->
 
   <p class="text-center is-label">Generated version 4 UUID:</p>
-  <h3 class="text-center has-label" ng-class="ctrl.isCopied?'glowing-border':''">
+  <h3 class="text-center has-label animate-block" ng-class="ctrl.isCopied?'glowing-border':''">
     {{ctrl.uuid}}
     <button ng-if="ctrl.uuid"
           ngclipboard

@@ -3,6 +3,7 @@
   angular.module('app', [
     'ngRoute',
     'ngSanitize',
+    'ngAnimate',
     'xeditable',
     'ui.bootstrap',
     'duScroll',
