@@ -4,16 +4,26 @@
   <span ng-if="ctrl.isCopied" class="alert alert-success center-block" role="alert">Copied!</span>
 
   <p class="text-center">Generated version 4 UUID:</p>
-  <h3 class="text-center">{{ctrl.uuid}}</h3>
+  <h3 class="text-center">
+    {{ctrl.uuid}}
+    <button ng-if="ctrl.uuid"
+          ngclipboard
+          data-clipboard-text="{{ctrl.uuid}}"
+          ngclipboard-success="ctrl.uuidCopied(e)"
+          class="btn btn-default"
+          type="submit">
+      <span class="glyphicon glyphicon-copy"></span>
+    </button>
+  </h3>
 
-  <button ng-if="ctrl.uuid"
+  <!--<button ng-if="ctrl.uuid"
         ngclipboard
         data-clipboard-text="{{ctrl.uuid}}"
         ngclipboard-success="ctrl.uuidCopied(e)"
         class="btn btn-default center-block"
         type="submit">
-    <span class="glyphicon glyphicon-copy"></span> Copy
-  </button>
+    <span class="glyphicon glyphicon-copy"></span>
+  </button>-->
 
   <button class="btn btn-primary btn-lg center-block" type="submit" ng-click="ctrl.generateUuid()">
     <span class="glyphicon glyphicon-flash"></span> Generate another
