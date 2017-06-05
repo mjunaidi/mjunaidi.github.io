@@ -59,7 +59,8 @@
     this.themes = [ "default", "cerulean", "cosmo", "cyborg", "darkly", "flatly",
               "journal", "lumen", "paper", "readable", "sandstone", "simplex",
               "slate", "solar", "spacelab", "superhero", "united", "yeti" ]; // zero-index
-    this.store('theme', this._themeService.pick(14));
+    this._themeService._themes = this.themes;
+    this.store('theme', this._themeService.pick(8));
 
     this.aboutOpts = {
       templateUrl : '../app/uuid/html/about.html',
