@@ -8,7 +8,7 @@
               '$timeout', 'hotkeys', 'uuid4'
             ];
 
-  var DEFAULT_KEY = 'U2FsdGVkX18kfDLR0gaDGKMt+n1NyAeYVk8pYntiyFBTPCzzKMOiGjVFrqYOxMjz';
+  var DEFAULT_KEY = '';
   var ALPHABETS = 'abcdefghijklmnopqrstuvwxyz';
 
   function MainController(modelService, themeService, storageService, modal,
@@ -93,165 +93,20 @@
     if (this._location.path() === '/uuid') {
       this.generateUuid();
     }
-
-    if (this._location.path() === '/exp') {
-      this.experiment();
-      this._modelService.watch(this, [ 'key' ], 'onKey', this.decryptExp.bind(this));
-    }
-  };
-
-  MainController.prototype.experiment = function() {
-    var path = "../app/uuid/data/";
-    var lPath = path + "l";
-    this.dataPaths = [];
-    this.records = [];
-    var ctrl = this;
-    this._http.get(lPath)
-      .success(function (data) {
-        var lines = data.split("\n");
-        for (var i in lines) {
-          var line = lines[i];
-          if (line) {
-            ctrl.dataPaths.push(line);
-          }
-        }
-        for (var i in ctrl.dataPaths) {
-          var dataPath = path + ctrl.dataPaths[i];
-          ctrl._http.get(dataPath)
-            .success(function (dataData) {
-              ctrl.records.push(dataData);
-            })
-            .error(function (dataData) {
-              console.log(data);
-            });
-        }
-      })
-      .error(function (data) {
-        console.log(data);
-      });
-  };
-
-  MainController.prototype.decryptExp = function() {
-    if (!this.key) {
-      return;
-    }
-    this.dRecords = [];
-    this.valid = false;
-    for (var i in this.records) {
-      var record = this.records[i];
-      try {
-        var decrypted = this._crypto.decrypt(record, this.key);
-        if (decrypted) {
-          this.dRecords.push(decrypted);
-          this.valid = true;
-        }
-      } catch (e) {
-         console.log(e);
-      }
-    }
-  };
-
-  // obsolete
-  MainController.prototype.readData = function() {
-    var path = "../app/uuid/json/data.json";
-    var ctrl = this;
-    this._http.get(path)
-      .success(function (data) {
-        ctrl.val = data.value;
-      })
-      .error(function (data) {
-        console.log(data);
-      });
-  };
-
-  MainController.prototype.encrypt = function() {
-    //console.log('Encrypting... ' + this.input + ' using key ' + this.key);
-    this.result = this._crypto.encrypt(this.input, this.key);
-  };
-
-  MainController.prototype.decrypt = function() {
-    this.input = this._crypto.decrypt(this.result, this.key);
-  };
-
-  MainController.prototype.decryptVal = function() {
-    this.decrypted = this._crypto.decrypt(this.val, this.key);
-  };
-
-  MainController.prototype.decryptEnc = function() {
-    if (this.encrypted) {
-      this.output = this._crypto.decrypt(this.encrypted, this.key);
-    }
-  };
-
-  MainController.prototype.copied = function(e) {
-    // hide copy button
-    this.focus = false;
-    this.isCopied = true;
-
-    // hide copied alert message
-    var ctrl = this;
-    this._timeout(function() {
-        ctrl.isCopied = false;
-      }, 1200
-    );
-
-    //console.info('Action:', e.action);
-    //console.info('Text:', e.text);
-    //console.info('Trigger:', e.trigger);
-
-    e.clearSelection();
-  };
-
-  MainController.prototype.pasteEnc = function() {
-    this.encrypted = this.result;
-    this.focus = false;
-    this.isPasted = true;
-    var ctrl = this;
-    this._timeout(function() {
-        ctrl.isPasted = false;
-      }, 1200
-    );
   };
 
   MainController.prototype.generateUuid = function() {
     this.uuid = this._uuid4.generate();
   };
 
-  MainController.prototype.uuidCopied = function() {
+  MainController.prototype.uuidCopied = function(e) {
     this.isCopied = true;
     var ctrl = this;
     this._timeout(function() {
         ctrl.isCopied = false;
       }, 1200
     );
-  };
-
-  MainController.prototype.enter = function() {
-    if (!this.mk) return;
-    if (!this.sk) return;
-    var path = "../app/uuid/data/m";
-    var ctrl = this;
-    ctrl._http.get(path)
-      .success(function (data) {
-        var m = data;
-        var d = ctrl._crypto.decrypt(m, ctrl.mk);
-        var e = ctrl._crypto.decrypt(d, ctrl.sk);
-        if (e === ctrl.fk) {
-          ctrl.fk = '';
-          ctrl.sk = '';
-          ctrl.auth = true;
-          ctrl.authErr = false;
-        } else {
-          ctrl.authErr = true;
-        }
-      })
-      .error(function (data) {
-        console.log(data);
-      });
-  };
-
-  MainController.prototype.exit = function() {
-    this.auth = false;
+    e.clearSelection();
   };
 
   MainController.prototype.save = function(str) {
