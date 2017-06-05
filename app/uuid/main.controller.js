@@ -40,7 +40,7 @@
 
     this.navbar = {
       templateUrl : '../app/uuid/html/navbar.html',
-      pages: [
+      /*pages: [
         {
           "name" : "Home", "path" : "/", "ra" : false
         }, {
@@ -52,7 +52,7 @@
         }, {
           "name" : "Experiment", "path" : "/exp", "ra" : true
         }
-      ]
+      ]*/
     };
 
     //this.themes = this._themeService.themes();
@@ -85,34 +85,8 @@
   };
 
   MainController.prototype._initBody = function() {
-    //console.log(this._location.path());
-
     if (this._location.path() === '/') {
-      this.experiment();
-      this._modelService.watch(this, [ 'key' ], 'onKey', this.decryptExp.bind(this));
-
-      //this.readData();
-      if (!this.key) {
-        this.openModal();
-      }
-    }
-
-    if (this._location.path() === '/try') {
-      this._modelService.watch(this, [ 'input' ], 'onInput', this.encrypt.bind(this));
-      this._modelService.watch(this, [ 'key' ], 'onKey', this.encrypt.bind(this));
-      this.encrypt();
-    }
-
-    if (this._location.path() === '/enc') {
-      this._modelService.watch(this, [ 'input' ], 'onInput', this.encrypt.bind(this));
-      this._modelService.watch(this, [ 'key' ], 'onKey', this.encrypt.bind(this));
-      this.encrypt();
-    }
-
-    if (this._location.path() === '/dec') {
-      this._modelService.watch(this, [ 'encrypted' ], 'onEncrypted', this.decryptEnc.bind(this));
-      this._modelService.watch(this, [ 'key' ], 'onKey', this.decryptEnc.bind(this));
-      this.decryptEnc();
+      this.generateUuid();
     }
 
     if (this._location.path() === '/uuid') {
