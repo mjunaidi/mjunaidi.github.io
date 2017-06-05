@@ -88,3 +88,17 @@ div.home {
   word-wrap: break-word;
 	-webkit-font-smoothing: antialiased;
 }
+
+.jumbotron .first-label {
+  margin-top: 0;
+}
+.jumbotron .gap-block {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+.jumbotron .is-label {
+  margin-bottom: 0px;
+}
+.jumbotron .has-label {
+  margin-top: 0px;
+}

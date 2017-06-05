@@ -1,10 +1,11 @@
 <div class="jumbotron"  ng-init="ctrl._initBody()">
-  <h2 class="text-center">Simple UUID Generator</h2>
+  <h2 class="text-center first-label">Simple UUID Generator</h2>
+  <div class="gap-block"></div>
 
   <span ng-if="ctrl.isCopied" class="alert alert-success center-block" role="alert">Copied!</span>
 
-  <p class="text-center">Generated version 4 UUID:</p>
-  <h3 class="text-center">
+  <p class="text-center is-label">Generated version 4 UUID:</p>
+  <h3 class="text-center has-label">
     {{ctrl.uuid}}
     <button ng-if="ctrl.uuid"
           ngclipboard
@@ -25,6 +26,7 @@
     <span class="glyphicon glyphicon-copy"></span>
   </button>-->
 
+  <div class="gap-block"></div>
   <button class="btn btn-primary btn-lg center-block" type="submit" ng-click="ctrl.generateUuid()">
     <span class="glyphicon glyphicon-flash"></span> Generate another
   </button>
