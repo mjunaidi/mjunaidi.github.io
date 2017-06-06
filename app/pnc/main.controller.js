@@ -85,9 +85,14 @@
   };
 
   MainController.prototype._initBody = function() {
-    //console.log(this._location.path());
-
     if (this._location.path() === '/') {
+      var s = this._location.search();
+      var q = s.q;
+
+      if (q) {
+        this.key = q;
+      }
+
       this.experiment();
       this._modelService.watch(this, [ 'key' ], 'onKey', this.decryptExp.bind(this));
 
@@ -145,6 +150,7 @@
           ctrl._http.get(dataPath)
             .success(function (dataData) {
               ctrl.records.push(dataData);
+              ctrl.decryptExp();
             })
             .error(function (dataData) {
               console.log(data);
