@@ -27,8 +27,7 @@
 }
 
 .feature-icon {
-  /*border-color: #778899;*/
-  border: none;
+  border-color: #778899;
 }
 
 .feature-icon i {
