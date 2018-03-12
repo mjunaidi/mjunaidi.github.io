@@ -6,7 +6,7 @@ var util = require('util'),
     url = require('url'),
     events = require('events');
 
-var DEFAULT_PORT = 8888;
+var DEFAULT_PORT = 3000;
 
 function main(argv) {
   new HttpServer({
@@ -82,7 +82,7 @@ StaticServlet.MimeMap = {
   'jpeg': 'image/jpeg',
   'gif': 'image/gif',
   'png': 'image/png',
-  'svg': 'image/svg+xml'
+  'svg': 'image/svg+xml'
 };
 
 StaticServlet.prototype.handleRequest = function(req, res) {
@@ -94,10 +94,19 @@ StaticServlet.prototype.handleRequest = function(req, res) {
   if (parts[parts.length-1].charAt(0) === '.')
     return self.sendForbidden_(req, res, path);
   fs.stat(path, function(err, stat) {
-    if (err)
-      return self.sendMissing_(req, res, path);
-    if (stat.isDirectory())
+    if (err) {
+      // for single page application, to always redirect to index.html
+      path = 'index.html'
+      return self.sendFile_(req, res, path);
+      //return self.sendMissing_(req, res, path);
+    }
+    if (stat.isDirectory()) {
+      if (path === './') {
+        path = 'index.html'
+        return self.sendFile_(req, res, path);
+      }
       return self.sendDirectory_(req, res, path);
+    }
     return self.sendFile_(req, res, path);
   });
 }
