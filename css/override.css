@@ -35,8 +35,48 @@
   color: #778899;
 }
 
-.showcase {
+.education-divider {
+  background: url("../img/unsplash/photo-1513151233558-d860c5398176.jpeg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
+}
+
+.education-divider h1 {
+  color: #fff; font-size: 40px; font-weight: 400; margin: 0 0 15px;
+}
+
+.education-divider-wrap {
+  padding: 100px 0; position: relative;
+}
+
+.showcase-divider {
+  background: url("../img/unsplash/unsplash_525f012329589_1.jpeg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
+}
+
+.showcase-divider h1 {
+  color: #fff; font-size: 40px; font-weight: 400; margin: 0 0 15px;
+}
+
+.showcase-divider-wrap {
+  padding: 100px 0; position: relative;
+}
+
+.showcase-divider-detail {
+  padding-top: 50px;
+}
+
+.showcase-water {
+  background: url("../img/unsplash/photo-1524096613842-71a8c45f08a2.jpeg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
+}
+
+.showcase-water-2 {
+  background: url("../img/unsplash/photo-1501979688843-f636cc420010.jpeg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
+}
+
+.showcase-laptop {
   background: url("../img/unsplash/work-stations-plus-espresso-blur.jpg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
+}
+
+.showcase-lights {
+  background: url("../img/unsplash/photo-1516906571665-49af58989c4e.jpeg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
 }
 
 .showcase h1>img {
@@ -44,7 +84,8 @@
 }
 
 .projects {
-  background: url("../img/unsplash/desktop.JPG") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
+  /*background: url("../img/unsplash/desktop.JPG") no-repeat fixed center center/cover rgba(0, 0, 0, 0);*/
+  background: url("../img/unsplash/photo-1517134062979-e1234be8a085.jpeg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
 }
 
 .projects h1 {
@@ -72,7 +113,8 @@
 }
 
 .achievements {
-  background: url("../img/unsplash/photo-1416339442236-8ceb164046f8-c.jpg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
+  /*background: url("../img/unsplash/photo-1416339442236-8ceb164046f8-c.jpg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);*/
+  background: url("../img/unsplash/photo-1502214722586-9c0a74759710.jpeg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
 }
 
 .achievements h1 {
