@@ -225,5 +225,36 @@ const info = {
         }
       ]
     }
+  ],
+  education: [
+    {
+      name: 'Machine Learning',
+      from: 'Stanford University',
+      year: '2017',
+      where: {
+        name: 'Coursera',
+        type: 'online',
+        link: 'https://www.coursera.org/learn/machine-learning',
+      },
+      details: [
+        'Stanford University through [Coursera](https://www.coursera.org/learn/machine-learning)',
+        '[View certificate](https://www.coursera.org/account/accomplishments/certificate/ALUBFHUDAES6)',
+        'My final grade: [99.6%](http://localhost:3000/coursera/coursera-machine-learning-grades.png)',
+      ],
+    },
+    {
+      name: 'Microsoft: DEV281x Introduction to ReactJS 2017 edX online',
+      from: 'Microsoft',
+      year: '2017',
+      where: {
+        name: 'edX',
+        type: 'online',
+        link: 'https://courses.edx.org/courses/course-v1:Microsoft+DEV281x+2T2017/info',
+      },
+      details: [
+        'Microsoft through [edX](https://courses.edx.org/courses/course-v1:Microsoft+DEV281x+2T2017/info)',
+        'My final grade: [81%](http://localhost:3000/edx/DEV281x-progress.png)'
+      ]
+    }
   ]
 }
