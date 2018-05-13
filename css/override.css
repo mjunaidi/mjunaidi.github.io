@@ -187,3 +187,7 @@ footer {
     padding-top: 16px;
   }
 }
+
+@media screen and (max-width:991px){
+	.hide-on-small-width {display:none;}
+}
