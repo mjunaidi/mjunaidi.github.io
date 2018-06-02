@@ -79,6 +79,10 @@
   background: url("../img/unsplash/photo-1516906571665-49af58989c4e.jpeg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
 }
 
+.showcase-wallpaper {
+  background: url("../img/unsplash/photo-1498550744921-75f79806b8a7.jpeg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
+}
+
 .showcase h1>img {
   border-radius: 17px;
 }
