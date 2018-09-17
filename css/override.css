@@ -63,6 +63,18 @@
   padding-top: 50px;
 }
 
+.showcase-numbers {
+  background: url("../img/unsplash-2018-09/photo-1457904375453-3e1fc2fc76f4.png") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
+}
+
+.showcase-shapes {
+  background: url("../img/unsplash-2018-09/photo-1526456498183-95faff4bf58f.jpeg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
+}
+
+.showcase-matrix {
+  background: url("../img/unsplash-2018-09/photo-1526374965328-7f61d4dc18c5.jpeg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
+}
+
 .showcase-water {
   background: url("../img/unsplash/photo-1524096613842-71a8c45f08a2.jpeg") no-repeat fixed center center/cover rgba(0, 0, 0, 0);
 }
