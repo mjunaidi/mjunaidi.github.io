@@ -1,0 +1,209 @@
+.dn {
+  display: none;
+}
+
+@media print {
+  .dn {
+    display: block !important;
+  }
+  .so {
+    display: none !important;
+  }
+  .hero {
+    padding: 0;
+    min-height: inherit;
+  }
+  .hero h1 {
+    margin: 0;
+    margin-top: 1rem;
+    font-size: 48px;
+  }
+  header .navicon {
+    display: none;
+  }
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header ul.list-inline>li {
+    padding: 0;
+  }
+  header .use-btn {
+    padding: 0;
+  }
+  .wp2 {
+    padding-bottom: 0;
+  }
+
+  #experience>.container h1 {
+    text-align: center;
+  }
+
+  .experience-detail .container {
+    padding: 0;
+    margin: 0;
+  }
+  .experience-detail .container .feature-icon {
+    display: none;
+  }
+  .experience-detail .container .feature-content {
+    width: 100%;
+  }
+  .experience-detail .container .feature-content h1 {
+    font-size: 18px;
+  }
+  .experience-detail .container .feature-content h3 {
+    font-size: 16px;
+  }
+  .experience-detail .container .feature-content ul {
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+  .badge {
+    border: .5px solid black;
+  }
+
+  .projects {
+    margin-top: 2.5rem;
+  }
+  .projects .projects-wrap {
+    padding: 0;
+    margin: 0;
+  }
+  .projects .projects-wrap h1 {
+    font-size: 2em;
+  }
+  .projects-detail {
+    padding: 0;
+    margin: 0;
+  }
+  .projects-detail .container {
+    padding: 0;
+    margin: 0;
+  }
+  .projects-detail .container .project {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-bottom: .5px dashed gray;
+  }
+  .projects-detail .container .project h1 {
+    margin: 0;
+    font-size: 18px;
+  }
+  .projects-detail .container .project figure {
+    display: none;
+  }
+  .projects-detail .container .project>p {
+    line-height: inherit;
+  }
+  .projects-detail .container .project>p>a {
+    border: none;
+    background-color: inherit;
+    color: black;
+    padding: 0;
+    margin: 0;
+  }
+
+  #showcase>.showcase-divider-wrap {
+    padding: 0;
+    margin: 0;
+    margin-top: 1.5rem;
+  }
+  #showcase>.showcase-divider-wrap h1 {
+    font-size: 2em;
+  }
+  .showcase>.showcase-wrap {
+    padding: 0;
+    margin: 0;
+    min-height: inherit;
+  }
+  .showcase>.showcase-wrap>.texture-overlay{
+    display: none;
+  }
+  .showcase>.showcase-wrap>.container{
+    padding: 0;
+    margin: 0;
+  }
+  .showcase>.showcase-wrap>.container .device {
+    display: none;
+  }
+  .showcase>.showcase-wrap>.container h1 {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+  .showcase>.showcase-wrap>.container h1>img {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: .2rem;
+    margin-right: 1rem;
+  }
+  .showcase>.showcase-wrap>.container p {
+    line-height: inherit;
+    margin-bottom: .5rem;
+  }
+  .showcase>.showcase-wrap>.container .download-appstore-btn {
+    margin: 0;
+    margin-top: .5rem;
+    padding: 0;
+    width: 100%;
+  }
+  .hide-on-small-width {
+    display: none;
+  }
+
+  #education {
+
+  }
+  #education>.education-divider-wrap {
+    padding: 0;
+    margin: 0;
+    margin-top: 2.45rem;
+  }
+  #education>.education-divider-wrap h1 {
+    font-size: 2em;
+  }
+  .screenshots-intro {
+    padding: 0;
+    margin: 0;
+  }
+  .screenshots-intro>.container {
+    padding: 0;
+    margin: 0;
+  }
+  .screenshots-intro>.container>.row>.col-md-12 {
+    border-bottom: .5px dashed gray;
+  }
+  .screenshots-intro>.container>.row>.col-md-12>h3 {
+    font-size: 16px;
+    margin-bottom: .5rem;
+  }
+  .screenshots-intro>.container>.row>.col-md-12>p {
+    margin-bottom: .5rem;
+  }
+
+  #achievements {
+
+  }
+  #achievements>.achievements-wrap {
+    padding: 0;
+    margin: 0;
+    margin-top: 1.5rem;
+  }
+  #achievements>.achievements-wrap h1 {
+    font-size: 2em;
+  }
+  .achievements-detail {
+    padding: 0;
+    margin: 0;
+  }
+  .achievements-detail>.container {
+    padding: 0;
+    margin: 0;
+  }
+  footer {
+    display: none;
+  }
+}
