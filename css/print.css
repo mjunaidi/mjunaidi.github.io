@@ -40,7 +40,7 @@
   }
 
   #experience {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
   }
   #experience>.container h1 {
     text-align: center;
@@ -79,7 +79,7 @@
   }
 
   .projects {
-    margin-top: 2.5rem;
+    margin-top: 3.5rem;
   }
   .projects .projects-wrap {
     padding: 0;
@@ -121,6 +121,9 @@
     margin: 0;
   }
 
+  #showcase {
+    margin-top: 2rem;
+  }
   #showcase>.showcase-divider-wrap {
     padding: 0;
     margin: 0;
@@ -169,7 +172,7 @@
   }
 
   #education {
-
+    margin-top: 2.75rem;
   }
   #education>.education-divider-wrap {
     padding: 0;
