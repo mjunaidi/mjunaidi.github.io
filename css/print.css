@@ -6,6 +6,9 @@
   .dn {
     display: block !important;
   }
+  .use-btn.dn {
+    display: inline-block !important;
+  }
   .so {
     display: none !important;
   }
