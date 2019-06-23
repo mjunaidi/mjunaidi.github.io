@@ -1,3 +1,9 @@
+.equal {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+}
+
 .mt-1 {
   margin-top: 0.325rem;
 }
