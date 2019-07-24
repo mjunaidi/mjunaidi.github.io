@@ -167,6 +167,10 @@ footer {
   padding-bottom: 0;
 }
 
+.logo-pollen {
+  background: url("../img/2019/pollen.png") no-repeat scroll 0px -0px/100% auto rgba(0, 0, 0, 0);
+}
+
 .logo-experian {
   background: url("../img/exp/logo-s.jpg") no-repeat scroll 0px -1px/100% auto rgba(0, 0, 0, 0);
 }
