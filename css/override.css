@@ -223,6 +223,38 @@ footer {
   background-size: contain;
 }
 
+.app-icon {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: .5rem;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+
+.app-list > a {
+  color: #428bca;
+}
+
+.d-block {
+  display: block;
+}
+
+.mb-1 {
+  margin-bottom: .25rem;
+}
+
+.mb-2 {
+  margin-bottom: .5rem;
+}
+
+.mr-3 {
+  margin-right: 1rem;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
 @media screen and (max-width:640px) {
   .use-btn {
     display: block;
