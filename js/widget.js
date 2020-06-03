@@ -48,3 +48,5 @@ if (typeof position === 'string' && position.length > 0) {
   el.style.left = '1rem';
   el.style.bottom = '1rem';
 }
+
+document.body.appendChild(el);
