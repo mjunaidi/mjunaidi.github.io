@@ -25,9 +25,6 @@ const position = document.currentScript.getAttribute('position');
 
 if (typeof position === 'string' && position.length > 0) {
   const [a, b] = position.split('-');
-  if (a === 'left') {
-    el.style.left = '1rem';
-  }
 
   switch (a) {
     case 'right':
