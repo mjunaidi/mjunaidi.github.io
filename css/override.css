@@ -36,6 +36,20 @@
   margin-bottom: 1rem;
 }
 
+.logo-whatsapp {
+  width: 15px;
+  height: 15px;
+  background: url('/img/logo-whatsapp-48.png') 0 0 / contain no-repeat;
+  display: inline-block;
+}
+
+.btn-whatsapp {
+  background: #01e675;
+  background: linear-gradient(45deg,#15B711,#7DFF9C);
+  color:white!important;
+  font-weight: bold;
+}
+
 .feature-content {
   width: 75%;
 }
