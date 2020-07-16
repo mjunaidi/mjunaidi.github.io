@@ -52,8 +52,15 @@
 }
 
 .btn-whatsapp {
+  background: #28A3E3;
+  background: linear-gradient(30deg,#15B711,#7DFF9C);
+  color:white!important;
+  font-weight: bold;
+}
+
+.btn-email {
   background: #01e675;
-  background: linear-gradient(45deg,#15B711,#7DFF9C);
+  background: linear-gradient(45deg,#1770BE,#4DD3F8);
   color:white!important;
   font-weight: bold;
 }
