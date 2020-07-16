@@ -305,6 +305,10 @@ footer {
   padding: 1rem;
 }
 
+#whatsapp-widget a {
+  outline: 0;
+}
+
 #whatsapp-widget .logo-whatsapp {
   background: url('/img/logo-whatsapp-144.png') 0 0 / contain no-repeat !important;
   width: 75px;
