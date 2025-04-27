@@ -216,6 +216,15 @@ footer {
   padding-bottom: 0;
 }
 
+.logo-ezypay {
+  background: url("../img/logo/ezypay.svg") no-repeat scroll 3px 26px/100% auto rgba(0, 0, 0, 0);
+  border-radius: 0;
+}
+
+.logo-pollen {
+  background: url("../img/logo/pollen.png") no-repeat scroll 0px 3px 26px/100% auto rgba(0, 0, 0, 0);
+}
+
 .logo-freelance {
   background: url("../img/2020/undraw_Designer_by46-crop.png") no-repeat scroll 0px -0px/100% auto rgba(0, 0, 0, 0);
 }
