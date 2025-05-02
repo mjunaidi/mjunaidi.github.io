@@ -222,16 +222,16 @@ footer {
 }
 
 .logo-pollen {
-  background: url("../img/logo/pollen.png") no-repeat scroll 0px 3px 26px/100% auto rgba(0, 0, 0, 0);
+  background: url("../img/logo/pollen.png") no-repeat scroll 0px -0px/100% auto rgba(0, 0, 0, 0);
 }
 
 .logo-freelance {
   background: url("../img/2020/undraw_Designer_by46-crop.png") no-repeat scroll 0px -0px/100% auto rgba(0, 0, 0, 0);
 }
 
-.logo-pollen {
+/*.logo-pollen {
   background: url("../img/2019/pollen.png") no-repeat scroll 0px -0px/100% auto rgba(0, 0, 0, 0);
-}
+}*/
 
 .logo-experian {
   background: url("../img/exp/logo-s.jpg") no-repeat scroll 0px -1px/100% auto rgba(0, 0, 0, 0);
